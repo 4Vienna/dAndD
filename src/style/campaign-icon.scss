@@ -1,11 +1,5 @@
-.Campaign-Icons{
-    background-size: cover;
-    padding:5px;
-    height: 200px;
-    width: 200px;
-    .campeign-info{
-        color: $accentOne;
-        text-align: center;
-        padding: 30px;
-    }
+.Campaign-Icons {
+  @include icon();
+  height: 200px;
+  width: 200px;
 }

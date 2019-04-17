@@ -1,17 +1,29 @@
-.bar {
+.button {
+  color: $accentOne;
+  transition: 0.5s ease-in-out;
+
+  &:hover {
+    color: $accentTwo;
+    text-decoration: none;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
   @include float-box();
   width: 10em;
-  height: 100vh;
   padding: 10px;
   overflow-x: hidden;
   position: relative;
   left: 0;
+  a {
+    color: $accentOne;
+    transition: 0.5s ease-in-out;
 
-  &:active {
-    left: 240px;
+    &:hover {
+      color: $accentTwo;
+      text-decoration: none;
+    }
   }
-}
-.nav {
-  display: flex;
-  flex-direction: column;
 }

@@ -34,16 +34,16 @@ export default class NavBar extends Component {
                 Members
               </Link>
               <Link to="/campaigns">
-                <FontAwesomeIcon icon="book" />
+                <FontAwesomeIcon icon="dragon" />
                 Campaigns
               </Link>
               <Link to="/characters">
                 <FontAwesomeIcon icon="theater-masks" />
                 Characters
               </Link>
-              <Link to="/calender">
-                <FontAwesomeIcon icon="calendar-alt" />
-                Calender
+              <Link to="/rules">
+                <FontAwesomeIcon icon="book" />
+                Rules as Written
               </Link>
             </div>
           </div>

@@ -1,18 +1,7 @@
 .icons {
   .info {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    align-items: center;
-    color: $accentOne;
-    box-shadow: 4px 4px 2px 0px rgb(20, 20, 20);
+    @include icon();
     height: 100px;
     width: 100px;
-    font-weight: 700;
-    font-size: 1.25em;
-
-    &:hover {
-      color: $accentTwo;
-    }
   }
 }
