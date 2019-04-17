@@ -1,0 +1,22 @@
+.announcements-wrapper {
+  @include float-box();
+  height: 20em;
+  width: 40%;
+}
+.carasol {
+  @include float-box();
+  height: 10em;
+  .charector-icons {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.campaigns-wrapper {
+  height: 20em;
+  @include float-box();
+  .campaign-icons {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}

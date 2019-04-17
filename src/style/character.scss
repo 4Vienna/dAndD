@@ -1,0 +1,57 @@
+.page {
+  @include one-column();
+  .header {
+    @include three-column();
+    .name {
+      grid-column: 2;
+      justify-self: center;
+      align-self: center;
+    }
+    .campaign {
+      grid-column: 3;
+      justify-self: end;
+    }
+  }
+  .body {
+    @include one-column();
+    color: white;
+    .body-top {
+      @include two-column();
+      .picture {
+        background-size: cover;
+        height: 597px;
+        margin: 10px;
+      }
+      .top-right {
+        @include two-column();
+        justify-items: center;
+        .table {
+          @include float-box();
+        }
+        .bio {
+          @include float-box();
+        }
+      }
+    }
+    .associates {
+      @include float-box();
+      .associates-wrapper {
+        @include two-column();
+        .associate {
+          transition: 0.5s ease-in-out;
+          &:hover {
+            color: $accentOne;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+.bottom-section {
+  @include float-box();
+  .characters {
+    display: grid;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,31 @@
+.campaign{
+    @include one-column();
+
+    .campaign-wrapper{
+        @include two-column();
+        height: calc(100% - 144px);
+    }
+    .images-container{
+        background-size: cover;
+    }
+    .summary{
+        @include float-box();
+        .created-by{
+            font-size: .5em
+        }
+    }
+    .characters{
+        @include float-box();
+        .characters-list{
+            height: 16em;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-column-gap: 5px;
+            place-items: center;
+        }
+    }
+    .video-slider{
+        @include float-box();
+        height: 20em;
+    }
+}

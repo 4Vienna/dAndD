@@ -1,0 +1,26 @@
+@mixin list {
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin float-box {
+  background: $main;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 3px 3px 5px 2px rgb(20, 20, 20);
+}
+
+@mixin one-column {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@mixin two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@mixin three-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}

@@ -1,0 +1,17 @@
+.bar {
+  @include float-box();
+  width: 10em;
+  height: 100vh;
+  padding: 10px;
+  overflow-x: hidden;
+  position: relative;
+  left: 0;
+
+  &:active {
+    left: 240px;
+  }
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+}

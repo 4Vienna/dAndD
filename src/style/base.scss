@@ -1,0 +1,57 @@
+h1 {
+  font-size: 5em;
+  text-align: center;
+  color: $accentOne;
+}
+h2 {
+  font-size: 2em;
+  text-align: center;
+  color: $accentOne;
+}
+h3 {
+  font-size: 1.5em;
+}
+td {
+  color: white;
+  a {
+    color: white;
+    transition: 0.5s ease-in-out;
+    &:hover {
+      text-decoration: none;
+      color: $accentOne;
+    }
+  }
+}
+.app {
+  background-color: black;
+  background-size: cover;
+  font-family: Muli;
+  color: $text;
+  padding: 5px;
+  .screen {
+    display: flex;
+    .navagation {
+      color: blue;
+    }
+  }
+}
+.header {
+  padding: 4px;
+}
+.body {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.contact {
+  text-align: center;
+}
+.list {
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+  a {
+    margin: 5px;
+    text-decoration: none;
+  }
+}
