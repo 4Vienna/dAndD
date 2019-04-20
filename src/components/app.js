@@ -4,6 +4,7 @@ import background from "../../static/assets/images/main-background.jpg";
 
 import Home from "./pages/home";
 import NavBar from "./pages/navBar";
+import Auth from "./pages/edits/auth";
 import CharactersPage from "./pages/characters-page";
 import Character from "./pages/templates/character";
 import Campaigns from "./pages/campaigns";
@@ -38,6 +39,7 @@ export default class App extends Component {
                 <Route path="/member" component={Member} />
                 <Route path="/rules" component={Rules} />
                 <Route path="/tomb" component={Campaign} />
+                <Route path="/login" component={Auth} />
                 <Route component={NoMatch} />
               </Switch>
             </div>

@@ -45,6 +45,10 @@ export default class NavBar extends Component {
                 <FontAwesomeIcon icon="book" />
                 Rules as Written
               </Link>
+              <Link to="/login">
+                <FontAwesomeIcon icon="lock" />
+                Login
+              </Link>
             </div>
           </div>
         ) : null}

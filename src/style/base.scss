@@ -31,6 +31,26 @@ td {
   padding: 5px;
 }
 
+.btn {
+  cursor: pointer;
+  height: 42px;
+  font-size: 1em;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.5s ease-in-out;
+  background-color: $accentOne;
+  color: white;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: $accentTwo;
+  }
+}
+
 .header {
   padding: 4px;
 }
