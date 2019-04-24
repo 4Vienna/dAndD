@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import Slider from "./icons/slider";
 import CamIcon from "./icons/campaign-icon";

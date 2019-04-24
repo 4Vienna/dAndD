@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import background from "../../static/assets/images/main-background.jpg";
+import axios from 'axios';
 
 import Home from "./pages/home";
 import NavBar from "./pages/navBar";
