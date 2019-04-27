@@ -1,22 +1,21 @@
-import React, {Component} from 'react'
+import React from 'react'
+import { Link } from "react-router-dom";
 
-import CamImg from "../../../../static/assets/images/ancient_campeign.jpg"
-
-export default class CamIcon extends Component{
-    constructor(props){
-        super(props);
-    
-    }
-    render(){
-return (
-<div className="Campaign-Icons"
-style={{
-    backgroundImage: "url(" + CamImg + ")"
-}}>
-<div className="campeign-info">
-{this.props.name}
-    </div>
-</div>
-);
-}
-}
+const CamIcon = props => {
+    const { id, name, pic } = props.campaign;
+  
+    return (
+      <Link to={`/campaign/${name}`} className="Campaign-Icons">
+        <div
+          className="campaign-info"
+          style={{
+            backgroundImage: "url(" + pic + ")"
+          }}
+        >
+          <div className="name">{name}</div>
+        </div>
+      </Link>
+    );
+  };
+  
+  export default CamIcon;

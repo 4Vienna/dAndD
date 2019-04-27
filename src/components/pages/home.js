@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Slider from "./icons/slider";
-import CamIcon from "./icons/campaign-icon";
+import CampaignsList from "./lists/campaigns-list";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class Home extends Component {
@@ -34,11 +34,7 @@ export default class Home extends Component {
         <div id="float-box" className="campaigns-wrapper">
           <h2>Campaigns</h2>
           <div className="campaign-icons">
-            <CamIcon name="Tomb of Annihilation" />
-            <CamIcon name="Vampires" />
-            <CamIcon name="Land of Rising Magic" />
-            <CamIcon name="Princes of the Apocalypse" />
-            <CamIcon name="Empire's Fall" />
+            <CampaignsList />
           </div>
         </div>
       </div>

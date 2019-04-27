@@ -124,7 +124,12 @@ class CharactersList extends Component {
   }
 
   render() {
-    return <div className="list">List</div>;
+    const characterRecords = this.state.characters.map(character =>{
+      return <CharacterIcon key={character.id} character={character} />
+    })
+    return <div className="list">
+    {characterRecords}
+    </div>;
   }
 }
 export default CharactersList;

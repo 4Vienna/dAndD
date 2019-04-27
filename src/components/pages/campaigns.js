@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import { Link } from "react-router-dom";
+
+import CampaignsList from './lists/campaigns-list';
 
 
 class Campaigns extends Component{
@@ -14,7 +15,7 @@ return (
     <option>Inactive</option>
 </select>
 <div id="float-box" className="campaign-wrapper">
-<Link to="/tomb">Tomb of Annihilation</Link>
+<CampaignsList />
 </div>
 </div>
 );

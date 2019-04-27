@@ -38,7 +38,7 @@ export default class App extends Component {
                 <Route path="/members" component={Members} />
                 <Route path="/member" component={Member} />
                 <Route path="/rules" component={Rules} />
-                <Route path="/tomb" component={Campaign} />
+                <Route path="/campaign/:slug" component={Campaign} />
                 <Route path="/login" component={Auth} />
                 <Route component={NoMatch} />
               </Switch>

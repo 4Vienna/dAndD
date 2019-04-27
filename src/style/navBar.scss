@@ -14,8 +14,8 @@
   @include float-box();
   width: 10em;
   padding: 10px;
-  overflow-x: hidden;
-  position: relative;
+  overflow-x: 1;
+  position: absolute;
   left: 0;
   a {
     color: $accentOne;
