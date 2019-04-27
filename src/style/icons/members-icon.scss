@@ -1,0 +1,12 @@
+.members-icons {
+  postion: relative;
+  .image{
+    @include icon();
+    height: 300px;
+    width: 300px; 
+  }
+  .info{
+    @include link();
+    font-size: 2em;
+  }
+  }

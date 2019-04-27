@@ -1,7 +1,14 @@
 .icons {
-  .info {
+  position: relative;
+  .image{
     @include icon();
     height: 100px;
     width: 100px;
+  }
+  .info {
+    @include link();
+    font-size: 1.25em;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }

@@ -1,5 +1,16 @@
 .Campaign-Icons {
-  @include icon();
-  height: 200px;
-  width: 200px;
+  position: relative;
+  .image{
+    @include icon();
+    background-position: center;
+    height: 200px;
+    width: 200px;
+  }
+  .info{
+    @include link();
+    position: absolute;
+    font-size: 1.25em;
+    padding-left: 65px;
+    padding-right: 100px;
+  }
 }

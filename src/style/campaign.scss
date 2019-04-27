@@ -1,11 +1,11 @@
-.campaign{
+.page{
     @include one-column();
 
-    .campaign-wrapper{
+    .body-top{
         @include two-column();
         height: calc(100% - 144px);
     }
-    .images-container{
+    .picture{
         background-size: cover;
     }
     .summary{

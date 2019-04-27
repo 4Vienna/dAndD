@@ -25,16 +25,26 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 @mixin icon {
+  box-shadow: 4px 4px 2px 0px rgb(20, 20, 20);
+  background-size: cover;
+  backgroun-color: #636262;
+  transition: 1s ease-in-out;
+  filter: brightness(50%);
+}
+@mixin link{
+  top: 0;
   display: grid;
   grid-template-columns: 1fr;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
-  color: $accentOne;
-  box-shadow: 4px 4px 2px 0px rgb(20, 20, 20);
-  font-weight: 700;
-  font-size: 1.25em;
-
+  height: 100%;
+  text-align: center;
+  transition: 1s ease-in-out;
+  color: transparent;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
   &:hover {
-    color: $accentTwo;
+    color: orange;
   }
 }

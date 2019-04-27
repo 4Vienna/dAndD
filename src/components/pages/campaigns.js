@@ -14,7 +14,7 @@ return (
     <option>Active</option>
     <option>Inactive</option>
 </select>
-<div id="float-box" className="campaign-wrapper">
+<div className="campaign-wrapper">
 <CampaignsList />
 </div>
 </div>

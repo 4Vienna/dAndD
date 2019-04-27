@@ -1,19 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CharacterIcon = props => {
-  const { id, name, pic } = props.character;
+const MembersIcon = props => {
+  const { name, pic } = props.member;
 
   return (
-    <Link to={`/character/${name}`} 
-    className="icons">
+    <Link to={`/member/${name}`} 
+    className="members-icons">
     <div className="image"
     style={{
       backgroundImage: "url(" + pic + ")"
     }}>
-      <div
-        className="info"
-      >
+      <div className="info">
         <div className="name">{name}</div>
       </div>
       </div>
@@ -21,4 +19,4 @@ const CharacterIcon = props => {
   );
 };
 
-export default CharacterIcon;
+export default MembersIcon;

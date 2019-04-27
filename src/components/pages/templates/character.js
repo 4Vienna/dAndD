@@ -15,24 +15,12 @@ class Character extends Component {
   }
 
   render() {
-    const {
-      id,
-      name,
-      pic,
-      className,
-      race,
-      align,
-      bio,
-      campaign
-    } = this.state.characterInfo;
     return (
       <div className="page">
         <div className="header">
           <h1 className="name">Vin</h1>
           <div className="campaign">
-            <CamImg
-              name="Tomb of Annihilation"
-              pic="https://source.unsplash.com/random/2000x2000"
+            <CamImg key="100" campaign="Tomb of Annihilation"
             />
           </div>
         </div>
