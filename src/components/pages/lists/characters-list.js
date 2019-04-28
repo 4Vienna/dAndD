@@ -40,7 +40,7 @@ class CharactersList extends Component {
           align: "Lawful Evil",
           bio: "Things about him",
           campaign: "Tomb of Annihilation",
-          player: "Jacon"
+          player: "Jacen"
         },
         {
           id: 3,
@@ -51,7 +51,7 @@ class CharactersList extends Component {
           align: "Chaotic Neutral",
           bio: "Things about him",
           campaign: "Tomb of Annihilation",
-          player: "Hyrum"
+          player: "Gideon"
         },
         {
           id: 4,
@@ -62,7 +62,7 @@ class CharactersList extends Component {
           align: "Neutral Neutral",
           bio: "Things about him",
           campaign: "Tomb of Annihilation",
-          player: "Hyrum"
+          player: "Gideon"
         },
         {
           id: 5,
@@ -73,7 +73,7 @@ class CharactersList extends Component {
           align: "Chaotic Good",
           bio: "Things about him",
           campaign: "Tomb of Annihilation",
-          player: "Chris"
+          player: "Kris"
         },
         {
           id: 6,
@@ -95,7 +95,7 @@ class CharactersList extends Component {
           align: "Neutral Evil",
           bio: "Things about him",
           campaign: "Tomb of Annihilation",
-          player: "Hyrum"
+          player: "Gideon"
         },
         {
           id: 8,
@@ -106,7 +106,7 @@ class CharactersList extends Component {
           align: "Chaotic Neutral",
           bio: "Things about him",
           campaign: "Vampires",
-          player: "Jacon"
+          player: "Jacen"
         },
         {
           id: 9,
@@ -117,7 +117,7 @@ class CharactersList extends Component {
           align: "Lawful Neutral",
           bio: "Things about him",
           campaign: "Vampires",
-          player: "Hyrum"
+          player: "Gideon"
         }
       ]
     };

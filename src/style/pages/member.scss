@@ -1,0 +1,28 @@
+.page{
+    @include one-column();
+    .body-top{
+        @include two-column();
+        height: calc(100% - 144px);
+    .picture{
+        background-size: cover;
+        background-position: center;
+        height: 597px;
+        margin: 10px;
+    }
+    .bio{
+        @include float-box();
+    }
+    .characters-block{
+        @include float-box();
+        .characters-list{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-column-gap: 5px;
+            place-items: center;
+        }
+    }
+    .campaigns{
+        @include float-box();
+    }
+}
+}
