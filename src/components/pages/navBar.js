@@ -5,28 +5,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default class NavBar extends Component {
   constructor() {
     super();
-    this.state = {
-      active: false
-    };
-    this.activeNav = this.activeNav.bind(this);
   }
-  activeNav = () => {
-    this.setState({
-      active: !this.state.active
-    });
-  };
 
   render() {
     return (
       <div className="nav-wapper">
-        <h3 className="button" onClick={this.activeNav}>
+        <h3 className="button">
           <FontAwesomeIcon icon="dungeon" />
           Menu
         </h3>
-        {this.state.active ? (
           <div className="bar">
             <div className="nav">
-              <Link exact to="/">
+              <Link to="/">
                 Home
               </Link>
               <Link to="/members">
@@ -51,7 +41,7 @@ export default class NavBar extends Component {
               </Link>
             </div>
           </div>
-        ) : null}
+
       </div>
     );
   }
