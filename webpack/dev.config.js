@@ -24,7 +24,7 @@ module.exports = webpackMerge(webpackCommon, {
 
     chunkFilename: '[id]-chunk.js',
 
-    publicPath: '/'
+    publicPath: '/',
 
   },
 
@@ -70,6 +70,7 @@ module.exports = webpackMerge(webpackCommon, {
     }),
     new HotModuleReplacementPlugin()
   ],
+  
 
   devServer: {
     host: env.devServer.host || 'localhost',

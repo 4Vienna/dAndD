@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import msql from 'mysql';
 
 import CharacterIcon from "../icons/character-icon";
 
@@ -121,6 +122,19 @@ class CharactersList extends Component {
         }
       ]
     };
+
+  }
+  makeConnection(){
+    mysql.createConnection({
+      host: "localhost",
+      port: 3306,
+      user: 'root',
+      password: '',
+    })
+  }
+
+  componentDidMount(){
+    this.makeConnection();
   }
 
   render() {

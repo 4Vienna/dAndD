@@ -20,3 +20,14 @@
     flex-wrap: wrap;
   }
 }
+.calendar-frame{
+  iframe{
+    height: 275px;
+    width: 800px;
+    border: 0;
+    .mv-dayname{
+      background-color: black;
+      color: white;
+    }
+  }
+}
