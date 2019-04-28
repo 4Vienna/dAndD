@@ -50,7 +50,7 @@
 }
 .bottom-section {
   @include float-box();
-  .characters {
+  .characters-list {
     display: grid;
     justify-content: center;
   }

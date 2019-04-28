@@ -17,6 +17,7 @@ export default class NavBar extends Component {
           <div className="bar">
             <div className="nav">
               <Link to="/">
+              <FontAwesomeIcon icon="home"/>
                 Home
               </Link>
               <Link to="/members">

@@ -1,0 +1,15 @@
+h2{
+    font-size: 2em;
+}
+.link{
+    color:white;
+    text-decoration: none;
+    transition: 1s ease-in-out;
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20vh;
+    &:hover{
+        color:$accentOne;
+        text-decoration: none;
+    }
+}

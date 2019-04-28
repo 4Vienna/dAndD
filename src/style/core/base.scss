@@ -29,6 +29,8 @@ td {
   font-family: Muli;
   color: $text;
   padding: 5px;
+  min-height: 100vh;
+  width: 100vw;
 }
 
 .btn {
@@ -40,12 +42,10 @@ td {
   transition: all 0.5s ease-in-out;
   background-color: $accentOne;
   color: white;
-
   &:active,
   &:focus {
     outline: none;
   }
-
   &:hover {
     background-color: $accentTwo;
   }
@@ -59,8 +59,11 @@ td {
   justify-content: space-between;
   padding: 10px;
 }
-.contact {
-  text-align: center;
+.contact-container{
+  width: 100vw;
+  .contact-info{
+    text-align: center;
+  }
 }
 .list {
   padding: 5px;

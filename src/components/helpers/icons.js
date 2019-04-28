@@ -16,7 +16,8 @@ import {
   faScroll,
   faCalendarAlt,
   faBook,
-  faTheaterMasks
+  faTheaterMasks,
+  faHome
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -39,7 +40,8 @@ const Icons = () => {
     faScroll,
     faCalendarAlt,
     faBook,
-    faTheaterMasks
+    faTheaterMasks,
+    faHome
   );
 };
 
