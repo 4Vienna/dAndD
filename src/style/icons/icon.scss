@@ -10,5 +10,9 @@
     font-size: 1.25em;
     padding-left: 10px;
     padding-right: 10px;
+    filter:brightness(100%);
+  }
+  &:hover .info{
+    color: $accentTwo;
   }
 }

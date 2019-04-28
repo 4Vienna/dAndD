@@ -8,9 +8,12 @@
   }
   .info{
     @include link();
-    position: absolute;
     font-size: 1.25em;
     padding-left: 65px;
     padding-right: 100px;
+    filter:brightness(100%)
+  }
+  &:hover .info{
+    color: $accentTwo;
   }
 }

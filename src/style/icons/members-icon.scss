@@ -9,4 +9,7 @@
     @include link();
     font-size: 2em;
   }
+  &:hover .info{
+    color: $accentTwo;
+  }
   }

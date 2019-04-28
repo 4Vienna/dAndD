@@ -10,10 +10,9 @@ const MembersIcon = props => {
     <div className="image"
     style={{
       backgroundImage: "url(" + pic + ")"
-    }}>
+    }}/>
       <div className="info">
         <div className="name">{name}</div>
-      </div>
       </div>
     </Link>
   );

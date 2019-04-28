@@ -11,10 +11,7 @@ const CamIcon = props => {
       style={{
         backgroundImage: "url(" + pic + ")"
       }}/>
-
-        <div
-          className="info"
-        >
+        <div className="info">
           <div className="name">{name}</div>
         </div>
       </Link>
