@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-const CamIcon = props => {
+const Medium = props => {
     const { id, name, pic } = props.campaign;
   
     return (
@@ -18,4 +18,4 @@ const CamIcon = props => {
     );
   };
   
-  export default CamIcon;
+  export default Medium;

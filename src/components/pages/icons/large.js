@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MembersIcon = props => {
+const Large = props => {
   const { name, pic } = props.member;
 
   return (
@@ -18,4 +18,4 @@ const MembersIcon = props => {
   );
 };
 
-export default MembersIcon;
+export default Large;

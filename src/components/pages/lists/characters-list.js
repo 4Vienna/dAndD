@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import msql from 'mysql';
 
-import CharacterIcon from "../icons/character-icon";
+
+import Small from "../icons/small";
+import Medium from "../icons/medium";
+import Large from "../icons/large"
 
 class CharactersList extends Component {
   constructor() {
@@ -125,21 +127,20 @@ class CharactersList extends Component {
 
   }
   makeConnection(){
-    mysql.createConnection({
-      host: "localhost",
-      port: 3306,
-      user: 'root',
-      password: '',
-    })
+
   }
 
   componentDidMount(){
-    this.makeConnection();
+
   }
 
   render() {
     const characterRecords = this.state.characters.map(character =>{
-      return <CharacterIcon key={character.id} character={character} />
+      if (icon == "small"){
+      return <Small key={character.id} character={character} />
+      }else if (icon == "medium"){
+        return <Medium key={character.id} character={character}/>
+      }
     })
     return <div className="list">
     {characterRecords}

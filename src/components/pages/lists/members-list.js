@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import noPic from "../../../../static/assets/images/no-char.jpg"
-import MembersIcon from "../icons/members-icon"
+import Large from "../icons/large"
 
 class MembersList extends Component {
     constructor(props){
@@ -62,7 +61,7 @@ class MembersList extends Component {
     }
     render() {
         const memberRecords = this.state.members.map(member =>{
-            return <MembersIcon key={member.id} member={member} />
+            return <Large key={member.id} member={member} />
         })
         return (
             <div className="list">

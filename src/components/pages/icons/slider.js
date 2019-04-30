@@ -12,7 +12,7 @@ export default class Slider extends Component {
       translateValue: 0
     };
   }
-
+//only display 10 items 
   goToPrevSlide = () => {
     this.setState(prevState => ({
       currentIndex: prevState.currentIndex - 1
@@ -30,7 +30,7 @@ export default class Slider extends Component {
       <div className="slider">
         <LeftArrow goToPrevSlide={this.goToPrevSlide} />
         <div className="list">
-          <CharactersList />
+          <CharactersList icon="small"/>
         </div>
         <RightArrow goToNextSlide={this.goToNextSlide} />
       </div>

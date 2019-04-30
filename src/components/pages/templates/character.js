@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import Slider from "../icons/slider";
-import CamImg from "../icons/campaign-icon";
-import Icon from "../icons/character-icon";
+import Medium from "../icons/medium";
 
 class Character extends Component {
   constructor(props) {
@@ -31,7 +30,7 @@ class Character extends Component {
         <div className="header">
           <h1 className="name">{this.state.character.name}</h1>
           <div className="campaign">
-            <CamImg key="100" campaign={this.state.character.campaign}
+            <Medium key="100" campaign={this.state.character.campaign}
             />
           </div>
         </div>

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
-import CamIcon from "../icons/campaign-icon";
+import Small from "../icons/small";
+import Medium from "../icons/medium";
+import Large from "../icons/large"
 
 class CampaignsList extends Component {
   constructor(props) {
@@ -59,7 +61,7 @@ class CampaignsList extends Component {
 
   render() {
     const campaignRecords = this.state.campaigns.map(campaign =>{
-      return <CamIcon key={campaign.id} campaign={campaign} />
+      return <Medium key={campaign.id} campaign={campaign} />
     })
     return <div className="list">
     {campaignRecords}

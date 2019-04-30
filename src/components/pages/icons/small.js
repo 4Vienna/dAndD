@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CharacterIcon = props => {
+const Small = props => {
   const { id, name, pic } = props.character;
 
   return (
@@ -18,4 +18,4 @@ const CharacterIcon = props => {
   );
 };
 
-export default CharacterIcon;
+export default Small;

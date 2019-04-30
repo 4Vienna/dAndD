@@ -1,0 +1,17 @@
+.rules{
+
+.description{
+    @include float-box();
+    text-align: center;
+}
+.body{
+    @include two-column();
+
+    .announcements{
+        @include float-box();
+    };
+    .episodes{
+        @include float-box();
+    }
+}
+}
