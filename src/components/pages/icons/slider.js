@@ -30,7 +30,7 @@ export default class Slider extends Component {
       <div className="slider">
         <LeftArrow goToPrevSlide={this.goToPrevSlide} />
         <div className="list">
-          <CharactersList icon="small"/>
+          <CharactersList/>
         </div>
         <RightArrow goToNextSlide={this.goToNextSlide} />
       </div>

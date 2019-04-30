@@ -3,7 +3,7 @@ import React from 'react';
 import CharactersList from "./lists/characters-list"
 
 const CharactersPage = props =>{
-    return <div> 
+    return <div className="characters-page"> 
         <h1> Characters</h1>
         <select>
             <option>Alpha</option>
@@ -12,7 +12,9 @@ const CharactersPage = props =>{
             <option>Race</option>
             <option>Campaign</option>
         </select>
+        <div className="characters">
         <CharactersList />
+        </div>
     </div>
 }
 

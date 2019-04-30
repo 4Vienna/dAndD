@@ -2,8 +2,7 @@ import React, { Component } from "react";
 
 
 import Small from "../icons/small";
-import Medium from "../icons/medium";
-import Large from "../icons/large"
+
 
 class CharactersList extends Component {
   constructor() {
@@ -136,11 +135,7 @@ class CharactersList extends Component {
 
   render() {
     const characterRecords = this.state.characters.map(character =>{
-      if (icon == "small"){
       return <Small key={character.id} character={character} />
-      }else if (icon == "medium"){
-        return <Medium key={character.id} character={character}/>
-      }
     })
     return <div className="list">
     {characterRecords}

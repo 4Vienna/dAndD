@@ -5,7 +5,7 @@ const Small = props => {
   const { id, name, pic } = props.character;
 
   return (
-    <Link to={`/character/${name}`} 
+    <Link to={`/character/${id}`} 
     className="icons">
     <div className="image"
     style={{

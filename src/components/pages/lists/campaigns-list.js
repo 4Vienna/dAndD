@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
-import Small from "../icons/small";
 import Medium from "../icons/medium";
-import Large from "../icons/large"
 
 class CampaignsList extends Component {
   constructor(props) {
