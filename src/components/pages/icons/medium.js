@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 const Medium = props => {
-    const { id, name, pic } = props.campaign;
+    const { id, name, pic } = props.icon;
   
     return (
-      <Link to={`/campaign/${name}`} 
-      className="Campaign-Icons">
+      <Link to={`/${props.type}/${name}`} 
+      className="icons">
       <div className="image" 
       style={{
         backgroundImage: "url(" + pic + ")"

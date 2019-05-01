@@ -1,8 +1,7 @@
-.Campaign-Icons {
+.icons {
   position: relative;
   .image{
     @include icon();
-    background-position: center;
     height: 200px;
     width: 200px;
   }

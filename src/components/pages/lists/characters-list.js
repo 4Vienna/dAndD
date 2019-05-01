@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-
+import Slider from "react-slick";
 import Small from "../icons/small";
 
 
@@ -120,7 +120,51 @@ class CharactersList extends Component {
           bio: "Things about him",
           campaign: "Vampires",
           player: "Gideon"
-        }
+        },
+        {
+          id: 10,
+          name: "Sebastian",
+          pic: "https://lh3.googleusercontent.com/Rg4mh2b5nHyNw_1lnk8ceSXSVPIxjQwCOWhGTdlBKN9n6qWH7prqqqMcP6BEEY051nOzO93fLmJobeoCvyKOEhBM5WunqXXHwvN0SAP_OCvdWpy15PQqftSRtLJYCTPfXhNmTS6Ozeka7YcBpmqfPFO6fGl_8WbW4nhfp8_thSN3rj1O4t4gu8BhNNPJl5N2Iffzt2KPSmZ9vvTF-qwfM1O9Aucl4TssUdk1QP0xTTaG_tSzJxw0vZuTPcsHP4rrz5S8d43FKOhN4Df2J2l-SZBlSxfiHKg1Zj1G2EHAT7MU6M1Eg8ygJHmlBFFgGIEKQ9SUqDA8L2JvQLosIXJYxdO6dKVOUgy45ukkHxMqlrKz7jcg0mHCYaRk4mt-xaMflMEP6_ibzc8ahWV3EeBFjv6TLwF47mVVykcVFbN4OxT4bnxRnzKrJ1rAlalgWZMZJAgQiq3PZ8lpaqxWyNsiu9av1XMwMd5FYJ-qxwGa18S418x54l9FmjjIUR-858HYkQHvhrkcYStyJH8weasEG953n8mVtkhHijrVBev8Pmjdh8iz5NucyB24Md9IClFHNld_oBb2KKTVURvhaS6DU9FBWTLnMyZMOlteXmrryqFux4w2ithvIkVQMgF-UaX_k7zGH9lmU0jggKLKrx4vkyPXltdt5kOR00xPLvVKJzbRQEGqQ2pA2tX8RfT3eU0d1HQtwbuMGSW_8qatX8EvrRed=s225-no",
+          race: "Human",
+          className: "Fighter/Cavalier",
+          align: "Lawful Neutral",
+          bio: "Things about him",
+          campaign: "Vampires",
+          player: "Gideon"
+        },
+        {
+          id: 11,
+          name: "Sebastian",
+          pic: "https://lh3.googleusercontent.com/Rg4mh2b5nHyNw_1lnk8ceSXSVPIxjQwCOWhGTdlBKN9n6qWH7prqqqMcP6BEEY051nOzO93fLmJobeoCvyKOEhBM5WunqXXHwvN0SAP_OCvdWpy15PQqftSRtLJYCTPfXhNmTS6Ozeka7YcBpmqfPFO6fGl_8WbW4nhfp8_thSN3rj1O4t4gu8BhNNPJl5N2Iffzt2KPSmZ9vvTF-qwfM1O9Aucl4TssUdk1QP0xTTaG_tSzJxw0vZuTPcsHP4rrz5S8d43FKOhN4Df2J2l-SZBlSxfiHKg1Zj1G2EHAT7MU6M1Eg8ygJHmlBFFgGIEKQ9SUqDA8L2JvQLosIXJYxdO6dKVOUgy45ukkHxMqlrKz7jcg0mHCYaRk4mt-xaMflMEP6_ibzc8ahWV3EeBFjv6TLwF47mVVykcVFbN4OxT4bnxRnzKrJ1rAlalgWZMZJAgQiq3PZ8lpaqxWyNsiu9av1XMwMd5FYJ-qxwGa18S418x54l9FmjjIUR-858HYkQHvhrkcYStyJH8weasEG953n8mVtkhHijrVBev8Pmjdh8iz5NucyB24Md9IClFHNld_oBb2KKTVURvhaS6DU9FBWTLnMyZMOlteXmrryqFux4w2ithvIkVQMgF-UaX_k7zGH9lmU0jggKLKrx4vkyPXltdt5kOR00xPLvVKJzbRQEGqQ2pA2tX8RfT3eU0d1HQtwbuMGSW_8qatX8EvrRed=s225-no",
+          race: "Human",
+          className: "Fighter/Cavalier",
+          align: "Lawful Neutral",
+          bio: "Things about him",
+          campaign: "Vampires",
+          player: "Gideon"
+        },
+        {
+          id: 12,
+          name: "Sebastian",
+          pic: "https://lh3.googleusercontent.com/Rg4mh2b5nHyNw_1lnk8ceSXSVPIxjQwCOWhGTdlBKN9n6qWH7prqqqMcP6BEEY051nOzO93fLmJobeoCvyKOEhBM5WunqXXHwvN0SAP_OCvdWpy15PQqftSRtLJYCTPfXhNmTS6Ozeka7YcBpmqfPFO6fGl_8WbW4nhfp8_thSN3rj1O4t4gu8BhNNPJl5N2Iffzt2KPSmZ9vvTF-qwfM1O9Aucl4TssUdk1QP0xTTaG_tSzJxw0vZuTPcsHP4rrz5S8d43FKOhN4Df2J2l-SZBlSxfiHKg1Zj1G2EHAT7MU6M1Eg8ygJHmlBFFgGIEKQ9SUqDA8L2JvQLosIXJYxdO6dKVOUgy45ukkHxMqlrKz7jcg0mHCYaRk4mt-xaMflMEP6_ibzc8ahWV3EeBFjv6TLwF47mVVykcVFbN4OxT4bnxRnzKrJ1rAlalgWZMZJAgQiq3PZ8lpaqxWyNsiu9av1XMwMd5FYJ-qxwGa18S418x54l9FmjjIUR-858HYkQHvhrkcYStyJH8weasEG953n8mVtkhHijrVBev8Pmjdh8iz5NucyB24Md9IClFHNld_oBb2KKTVURvhaS6DU9FBWTLnMyZMOlteXmrryqFux4w2ithvIkVQMgF-UaX_k7zGH9lmU0jggKLKrx4vkyPXltdt5kOR00xPLvVKJzbRQEGqQ2pA2tX8RfT3eU0d1HQtwbuMGSW_8qatX8EvrRed=s225-no",
+          race: "Human",
+          className: "Fighter/Cavalier",
+          align: "Lawful Neutral",
+          bio: "Things about him",
+          campaign: "Vampires",
+          player: "Gideon"
+        },
+        {
+          id: 13,
+          name: "Sebastian",
+          pic: "https://lh3.googleusercontent.com/Rg4mh2b5nHyNw_1lnk8ceSXSVPIxjQwCOWhGTdlBKN9n6qWH7prqqqMcP6BEEY051nOzO93fLmJobeoCvyKOEhBM5WunqXXHwvN0SAP_OCvdWpy15PQqftSRtLJYCTPfXhNmTS6Ozeka7YcBpmqfPFO6fGl_8WbW4nhfp8_thSN3rj1O4t4gu8BhNNPJl5N2Iffzt2KPSmZ9vvTF-qwfM1O9Aucl4TssUdk1QP0xTTaG_tSzJxw0vZuTPcsHP4rrz5S8d43FKOhN4Df2J2l-SZBlSxfiHKg1Zj1G2EHAT7MU6M1Eg8ygJHmlBFFgGIEKQ9SUqDA8L2JvQLosIXJYxdO6dKVOUgy45ukkHxMqlrKz7jcg0mHCYaRk4mt-xaMflMEP6_ibzc8ahWV3EeBFjv6TLwF47mVVykcVFbN4OxT4bnxRnzKrJ1rAlalgWZMZJAgQiq3PZ8lpaqxWyNsiu9av1XMwMd5FYJ-qxwGa18S418x54l9FmjjIUR-858HYkQHvhrkcYStyJH8weasEG953n8mVtkhHijrVBev8Pmjdh8iz5NucyB24Md9IClFHNld_oBb2KKTVURvhaS6DU9FBWTLnMyZMOlteXmrryqFux4w2ithvIkVQMgF-UaX_k7zGH9lmU0jggKLKrx4vkyPXltdt5kOR00xPLvVKJzbRQEGqQ2pA2tX8RfT3eU0d1HQtwbuMGSW_8qatX8EvrRed=s225-no",
+          race: "Human",
+          className: "Fighter/Cavalier",
+          align: "Lawful Neutral",
+          bio: "Things about him",
+          campaign: "Vampires",
+          player: "Gideon"
+        },
       ]
     };
 
@@ -134,11 +178,22 @@ class CharactersList extends Component {
   }
 
   render() {
-    const characterRecords = this.state.characters.map(character =>{
-      return <Small key={character.id} character={character} />
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 10,
+      slidesToScroll: 1,
+      centerMode: true,
+      centerPadding:'0px',
+    };
+    const characterRecords = this.state.characters.map(icon =>{
+      return <Small key={icon.id} icon={icon} type="character" />
     })
     return <div className="list">
+    <Slider {...settings}>
     {characterRecords}
+    </Slider>
     </div>;
   }
 }

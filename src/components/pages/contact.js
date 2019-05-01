@@ -6,7 +6,7 @@ return (
   <div className="contact-container">
 <div className="contact-info">
         Contact us at 
-        <a herf="gmail.com"> viennalarose@gmail.com</a>
+        <a herf="gmail.com"> bdwellersguild@gmail.com</a>
         <div>website by Vienna
           </div>
         </div>

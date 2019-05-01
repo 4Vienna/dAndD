@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Small = props => {
-  const { id, name, pic } = props.character;
+  const { id, name, pic } = props.icon;
+  const { type } = props.type
 
   return (
-    <Link to={`/character/${id}`} 
+    <Link to={`/${type}/${id}`} 
     className="icons">
     <div className="image"
     style={{

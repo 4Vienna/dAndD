@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Slider from "./icons/slider";
+import CharactersList from "./lists/characters-list";
 import CampaignsList from "./lists/campaigns-list";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -15,7 +15,7 @@ export default class Home extends Component {
         <div className="header">
           <h1>Basment Dwellers Guild</h1>
           <div id="float-box" className="carasol">
-            <Slider />
+            <CharactersList />
           </div>
         </div>
         <div className="body">

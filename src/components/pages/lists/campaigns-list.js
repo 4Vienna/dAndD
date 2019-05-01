@@ -58,8 +58,8 @@ class CampaignsList extends Component {
   }
 
   render() {
-    const campaignRecords = this.state.campaigns.map(campaign =>{
-      return <Medium key={campaign.id} campaign={campaign} />
+    const campaignRecords = this.state.campaigns.map(icon =>{
+      return <Medium key={icon.id} icon={icon} type="campaign" />
     })
     return <div className="list">
     {campaignRecords}
