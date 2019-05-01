@@ -1,7 +1,7 @@
 .announcements-wrapper {
   @include float-box();
   height: 20em;
-  width: 40%;
+  min-width: 400px;
 }
 .carasol {
   @include float-box();
@@ -12,7 +12,7 @@
   }
 }
 .campaigns-wrapper {
-  height: 20em;
+  min-height: 20em;
   @include float-box();
   .campaign-icons {
     display: flex;

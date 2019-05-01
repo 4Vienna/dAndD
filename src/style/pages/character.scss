@@ -1,12 +1,5 @@
 .page {
   @include one-column();
-  .header {
-    @include one-column();
-    .name {
-      justify-self: center;
-      align-self: center;
-    }
-  }
   .body {
     @include one-column();
     color: white;

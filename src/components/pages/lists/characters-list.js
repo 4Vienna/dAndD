@@ -7,7 +7,6 @@ import Small from "../icons/small";
 class CharactersList extends Component {
   constructor() {
     super();
-
     this.state = {
       characters: [
         {
@@ -184,8 +183,6 @@ class CharactersList extends Component {
       speed: 500,
       slidesToShow: 10,
       slidesToScroll: 1,
-      centerMode: true,
-      centerPadding:'0px',
     };
     const characterRecords = this.state.characters.map(icon =>{
       return <Small key={icon.id} icon={icon} type="character" />

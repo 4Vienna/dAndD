@@ -27,11 +27,7 @@ class Character extends Component {
   render() {
     return (
       <div className="page">
-        <div className="header">
           <h1 className="name">{this.state.character.name}</h1>
-          <div className="campaign">
-          </div>
-        </div>
         <div className="body">
           <div className="body-top">
             <div

@@ -22,14 +22,14 @@ export default class Campaign extends Component {
     return (
       <div className="page">
       <div className="body">
-        <h1>{this.state.campaign.name}</h1>
-        <div className="body-top">
-        <div className="picture"
+      <div className="header">
+      <div className="picture"
         style={{
           backgroundImage: "url(" + this.state.campaign.pic + ")"
         }}>
+        <h1>{this.state.campaign.name}</h1>
         </div>
-        <div className="right-column">
+        </div>
         <div className="summary">
         <h2>Description</h2>
         <div className="description">
@@ -45,8 +45,6 @@ export default class Campaign extends Component {
         <div className="characters">
         <h2>Characters</h2>
         <div className="characters-list">
-        </div>
-        </div>
         </div>
         </div>
         <div className="video-slider">

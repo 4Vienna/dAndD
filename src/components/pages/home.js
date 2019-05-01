@@ -13,7 +13,7 @@ export default class Home extends Component {
     return (
       <div className="home">
         <div className="header">
-          <h1>Basment Dwellers Guild</h1>
+          <h1>Basement Dwellers Guild</h1>
           <div id="float-box" className="carasol">
             <CharactersList />
           </div>
