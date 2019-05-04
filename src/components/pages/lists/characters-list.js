@@ -37,6 +37,9 @@ class CharactersList extends Component {
   }
 
   render() {
+    if (this.state.isLoading) {
+      return <div>Loading...</div>;
+    }
     var settings = {
       dots: true,
       infinite: true,

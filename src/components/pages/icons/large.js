@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Large = props => {
-  const { name, pic } = props.member;
+  const { name, pic, id } = props.member;
 
   return (
-    <Link to={`/member/${name}`} 
+    <Link to={`/member/${id}`} 
     className="members-icons">
     <div className="image"
     style={{

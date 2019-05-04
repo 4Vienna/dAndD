@@ -1,11 +1,11 @@
 .page{
     @include one-column();
     .header{
-        height: 300px;
     .picture{
         @include one-column();
         background-size: cover;
         background-position: center;
+        height: 300px;
     }
     h1{
         text-shadow: 3px 3px 10px black;

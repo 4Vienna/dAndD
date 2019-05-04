@@ -5,7 +5,7 @@ const Medium = props => {
     const { id, name, pic } = props.icon;
   
     return (
-      <Link to={`/${props.type}/${name}`} 
+      <Link to={`/${props.type}/${id}`} 
       className="medium-icons">
       <div className="image" 
       style={{

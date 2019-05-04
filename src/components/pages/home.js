@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import firebase from "../config/fbconfig"
+
 
 import CharactersList from "./lists/characters-list";
 import CampaignsList from "./lists/campaigns-list";
@@ -7,9 +9,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default class Home extends Component {
   constructor(props) {
     super(props);
+    this.state={
+      announcements:[]
+    }
+  }
+  getAnnouncements(){
+    const db = firebase.firestore();
+    var announceRef = db.collection('announcements');
+    var allannounce = announceRef.get()
+  .then(snapshot => {
+    let announcements = []
+    snapshot.forEach(doc => {
+      announcements.push({...doc.data()});
+    });
+    this.setState({
+      announcements,
+    })
+  })
+  .catch(err => {
+    console.log('Error getting documents', err);
+  });
+}
+
+  componentDidMount(){
+    this.getAnnouncements()
   }
 
   render() {
+    const announce = this.state.announcements.map(info =>{
+      return <li key={info.id}>{info.content}</li>
+    })
     return (
       <div className="home">
         <div className="header">
@@ -22,7 +51,7 @@ export default class Home extends Component {
           <div id="float-box" className="announcements-wrapper">
             <h2>Announcements:</h2>
             <div className="announcement">
-              <li>Coming soon: Feast of the Damned</li>
+              {announce}
             </div>
           </div>
           <div className="calendar">
