@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import 'firebase/auth';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import firebase from "../../config/fbconfig"
 
 import Medium from "../icons/medium";
+import CharactersList from "../lists/characters-list";
 
 class Character extends Component {
   constructor(props) {
@@ -116,6 +117,7 @@ class Character extends Component {
         <div className="bottom-section">
           <h2>Characters</h2>
           <div className="characters-list">
+          <CharactersList/>
           </div>
         </div>
       </div>

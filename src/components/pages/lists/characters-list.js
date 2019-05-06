@@ -40,21 +40,19 @@ class CharactersList extends Component {
     if (this.state.isLoading) {
       return <div>Loading...</div>;
     }
-    var settings = {
-      dots: true,
+    const properties = {
       infinite: true,
-      speed: 500,
+      dots: true,
+      arrows: true,
       slidesToShow: 10,
-      slidesToScroll: 1,
-    };
+      slidesToScroll: 1
+    }
     const characterRecords = this.state.characters.map(icon =>{
-      return <Small key={icon.id} icon={icon} type="character" />
+      return <Small key={icon.id} icon={icon} />
     })
-    return <div className="list">
-    <Slider {...settings}>
+    return <Slider {...properties}>
     {characterRecords}
     </Slider>
-    </div>;
   }
 }
 export default CharactersList;

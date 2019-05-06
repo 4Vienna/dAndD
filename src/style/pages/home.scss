@@ -6,10 +6,6 @@
 .carasol {
   @include float-box();
   height: 10em;
-  .charector-icons {
-    display: flex;
-    justify-content: space-around;
-  }
 }
 .campaigns-wrapper {
   min-height: 20em;
