@@ -35,7 +35,7 @@ export default class Campaign extends Component {
       <div className="header">
       <div className="picture"
         style={{
-          backgroundImage: "url(" + this.state.campaign.pic + ")"
+          backgroundImage: "url(" + this.state.campaign.banner + ")"
         }}>
         <h1>{this.state.campaign.name}</h1>
         </div>

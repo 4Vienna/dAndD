@@ -1,8 +1,10 @@
 .page {
   @include one-column();
+  width: 100vw;
   .body {
     @include one-column();
     color: white;
+    width: 100vw;
     .body-top {
       @include two-column();
       .char-picture {
@@ -40,8 +42,11 @@
 }
 .bottom-section {
   @include float-box();
-  .characters-list {
+  height: 10em;
+  width: 98vw;
+  .list {
     display: grid;
     justify-content: center;
+
   }
 }

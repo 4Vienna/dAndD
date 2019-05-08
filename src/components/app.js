@@ -4,7 +4,7 @@ import background from "../../static/assets/images/main-background.jpg";
 
 import Home from "./pages/home";
 import NavBar from "./pages/navBar";
-import Auth from "./pages/edits/auth";
+import Auth from "./pages/edits/auth/auth";
 import CharactersPage from "./pages/characters-page";
 import Character from "./pages/templates/character";
 import Campaigns from "./pages/campaigns";
@@ -15,6 +15,7 @@ import Rules from "./pages/rules";
 import Contact from "./pages/contact";
 import NoMatch from "./pages/no-match";
 import Icons from "./helpers/icons";
+import EditCharacters from "./pages/edits/character/edit-character"
 
 export default class App extends Component {
   constructor(props) {
@@ -40,6 +41,7 @@ export default class App extends Component {
                 <Route path="/member/:slug" component={Member} />
                 <Route path="/rules" component={Rules} />
                 <Route path="/login" component={Auth} />
+                <Route path="/edit-characters" component={EditCharacters}/>
                 <Route component={NoMatch} />
               </Switch>
             </div>

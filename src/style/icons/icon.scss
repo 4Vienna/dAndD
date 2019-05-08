@@ -1,5 +1,4 @@
 .icons {
-  position: relative;
   .image{
     @include icon();
     height: 100px;
@@ -8,12 +7,12 @@
   .info {
     @include link();
     font-size: 1.25em;
-    padding-left: 10px;
-    padding-right: 10px;
     filter:brightness(100%);
+    width: 100px;
   }
   &:hover .info{
     color: $accentTwo;
     text-shadow: 2px 2px 8px black;
   }
 }
+

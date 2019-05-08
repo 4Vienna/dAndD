@@ -43,9 +43,10 @@ class CharactersList extends Component {
     const properties = {
       infinite: true,
       dots: true,
+      centerMode:true,
       arrows: true,
       slidesToShow: 10,
-      slidesToScroll: 1
+      slidesToScroll: 1,
     }
     const characterRecords = this.state.characters.map(icon =>{
       return <Small key={icon.id} icon={icon} />

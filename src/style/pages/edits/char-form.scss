@@ -1,0 +1,27 @@
+.char-form-wrapper{
+    @include float-box();
+    padding: 42px;
+    .form-content{
+        @include two-column();
+        grid-gap: 20px;
+    }
+    
+    .name{
+        @include two-column();
+        grid-column-gap: 20px;
+    }
+    .race{
+        @include two-column();
+    }
+    .class{
+        @include two-column();
+    }
+    @include input-element();
+    input{
+        margin-bottom: 0px;
+    }
+    textarea{
+        width: 48vw;
+        min-height: 120px;
+    }
+}

@@ -34,9 +34,6 @@ class Character extends Component {
   }
 
   render() {
-    if (this.state.isLoading) {
-      return <div>Loading...</div>;
-    }
     return (
       <div className="page">
           <h1 className="name">{this.state.character.name}</h1>
@@ -60,18 +57,18 @@ class Character extends Component {
                       </tr>
                       <tr>
                         <td>Full Name</td>
-                        <td>{this.state.character.name}</td>
+                        <td>{this.state.character.fullname}</td>
                       </tr>
                       <tr>
                         <td>Race</td>
-                        <td>{this.state.character.race}</td>
+                        <td>{this.state.character.race}: {this.state.character.subrace}</td>
                       </tr>
                       <tr>
                         <td>Class</td>
-                        <td>{this.state.character.class}</td>
+                        <td>{this.state.character.class}: {this.state.character.subclass} {this.state.character.patron}</td>
                       </tr>
                       <tr>
-                        <td>alignment</td>
+                        <td>Alignment</td>
                         <td>{this.state.character.alignment}</td>
                       </tr>
                       <tr>
@@ -116,8 +113,8 @@ class Character extends Component {
         </div>
         <div className="bottom-section">
           <h2>Characters</h2>
-          <div className="characters-list">
-          <CharactersList/>
+          <div className="list">
+          <CharactersList />
           </div>
         </div>
       </div>
