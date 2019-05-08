@@ -1,17 +1,20 @@
 import React, { Component } from "react";
-import CharacterList from "../lists/characters-list"
 import firebase from "../../config/fbconfig"
+
+import CharactersList from "../lists/characters-list"
 
 export default class Campaign extends Component {
   constructor(props){
     super(props)
 
     this.state={
-      campaign:{}
-      
+      campaign:{
+        name: ''
+      },
     }
 
   }
+
   getCampaign(){
     const db = firebase.firestore();
     var camRef = db.doc(`campaigns/${this.props.match.params.slug}`)
@@ -19,16 +22,13 @@ export default class Campaign extends Component {
     .then(doc => this.setState({ campaign: doc.data()}))
   .catch(err => {
     console.log('Error getting documents', err);
-  });
+  })
 }
 
   componentDidMount(){
     this.getCampaign()
   }
   render() {
-    if (this.state.isLoading) {
-      return <div>Loading...</div>;
-    }
     return (
       <div className="page">
       <div className="body">
@@ -54,7 +54,8 @@ export default class Campaign extends Component {
         </div>
         <div className="characters">
         <h2>Characters</h2>
-        <div className="characters-list">
+        <div className="characters-campaign-list">
+        <CharactersList campaign={this.state.campaign.name} type="campaign"/>
         </div>
         </div>
         <div className="video-slider">

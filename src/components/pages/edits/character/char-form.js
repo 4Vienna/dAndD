@@ -21,10 +21,12 @@ class CharForm extends Component {
             },
             charclass: [],
             race: [],
+            subclass: [],
         }
         this.handleChange=this.handleChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
     }
+
     handleSubmit(event){
         event.preventDefault();
     }
@@ -79,6 +81,15 @@ class CharForm extends Component {
           let characterClass = this.state.charclass.map(info =>{
             return <option key={info.id} value={info.id}>{info.name}</option>
           })
+          let subClass = ()=>{
+            let currentclass = this.state.character.class;
+            this.state.charclass.map(info =>{
+              return <option 
+              key={info.subclass.id} 
+              value={info.subclass.id}>
+              {info.subclass.name}</option>
+            })
+          }
         return (
             <form onSubmit={this.handleSubmit} className="char-form-wrapper">
             <div className="form-content">
@@ -107,7 +118,6 @@ class CharForm extends Component {
                 <select
                     type="text"
                     name="race"
-                    value={this.state.race}
                     onChange={this.handleChange}>
                     {characterRace}
                     </select>
@@ -141,9 +151,7 @@ class CharForm extends Component {
                     name="class"
                     value={this.state.charclass.subclass}
                     onChange={this.handleChange}>
-                    <option value="forrest">Forrest</option>
-                    <option value="hill">Hill</option>
-                    <option value="black">Black</option>
+                    {subClass}
                     </select>
                     </div>
                 </div>

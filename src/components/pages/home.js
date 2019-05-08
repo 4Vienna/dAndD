@@ -44,7 +44,7 @@ export default class Home extends Component {
         <div className="header">
           <h1>Basement Dwellers Guild</h1>
           <div className="carasol">
-            <CharactersList />
+            <CharactersList type="slider" />
           </div>
         </div>
         <div className="body">

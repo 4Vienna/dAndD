@@ -19,7 +19,7 @@
     }
     .characters{
         @include float-box();
-        .characters-list{
+        .characters-campaign-list{
             min-height: 16em;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
