@@ -12,6 +12,7 @@ class CharactersList extends Component {
     super(props);
     this.state = {
       characters: [],
+      list: [],
     };
 
   }
@@ -39,12 +40,15 @@ class CharactersList extends Component {
       return medRecords
     } else if (this.props.type == "campaign"){
       let smallList = [];
-      let iconList = smallList.map(icon=>{
+      let iconList = this.state.list.map(icon=>{
         return <Small key={icon.id} icon={icon}/>
       })
       let charSort = characters.map( info=>{
         if(info.campaign == this.props.campaign){
           smallList.push({...info.data()})
+          this.setState({
+            list: smallList,
+          })
           return ""
         }else {
           return ""

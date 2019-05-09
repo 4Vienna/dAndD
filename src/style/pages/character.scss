@@ -41,12 +41,8 @@
   }
 }
 .bottom-section {
-  @include float-box();
-  height: 10em;
-  width: 98vw;
-  .list {
-    display: grid;
-    justify-content: center;
-
+  .characters-list {
+    height: 13em;
+    width: 98vw;
   }
 }

@@ -112,8 +112,8 @@ class Character extends Component {
           </div>
         </div>
         <div className="bottom-section">
+          <div className="characters-list">
           <h2>Characters</h2>
-          <div className="list">
           <CharactersList type="slider" />
           </div>
         </div>
