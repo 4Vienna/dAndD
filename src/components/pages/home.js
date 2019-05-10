@@ -64,7 +64,7 @@ export default class Home extends Component {
         <div id="float-box" className="campaigns-wrapper">
           <h2>Campaigns</h2>
           <div className="campaign-icons">
-            <CampaignsList />
+            <CampaignsList type="all" />
           </div>
         </div>
       </div>

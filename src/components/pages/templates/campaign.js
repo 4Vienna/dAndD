@@ -52,9 +52,9 @@ export default class Campaign extends Component {
         By: {this.state.campaign.by}
         </div>
         </div>
-        <div className="characters">
+        <div className="characters-list">
         <h2>Characters</h2>
-        <div className="characters-campaign-list">
+        <div className="list">
         <CharactersList campaign={this.state.campaign.name} type="campaign"/>
         </div>
         </div>

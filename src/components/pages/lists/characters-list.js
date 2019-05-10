@@ -39,19 +39,29 @@ class CharactersList extends Component {
       })
       return medRecords
     } else if (this.props.type == "campaign"){
-      let smallList = [];
-      let iconList = this.state.list.map(icon=>{
-        return <Small key={icon.id} icon={icon}/>
+      let iconList = this.state.characters.map(icon=>{
+        if (icon.campaign == this.props.campaign){
+        return <Medium key={icon.id} icon={icon} type="character"/>
+        }else{
+          return
+        }
       })
-      let charSort = characters.map( info=>{
-        if(info.campaign == this.props.campaign){
-          smallList.push({...info.data()})
-          this.setState({
-            list: smallList,
-          })
-          return ""
-        }else {
-          return ""
+      return iconList
+    }else if (this.props.type == "character"){
+      let iconList = this.state.characters.map(icon=>{
+        if (icon.id !== this.props.id && icon.campaign == this.props.campaign){
+        return <Medium key={icon.id} icon={icon} type="character"/>
+        }else{
+          return
+        }
+      })
+      return iconList
+    }else if( this.props.type == 'player'){
+      let iconList = this.state.characters.map(icon=>{
+        if ( icon.player == this.props.player){
+        return <Small key={icon.id} icon={icon}/>
+        }else{
+          return
         }
       })
       return iconList

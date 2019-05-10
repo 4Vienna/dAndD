@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import firebase from "../../config/fbconfig"
 
+import CharactersList from "../lists/characters-list"
+import CampaignsList from "../lists/campaigns-list"
+
 export default class Member extends Component {
   constructor(props){
     super(props)
@@ -42,14 +45,16 @@ export default class Member extends Component {
       {this.state.member.bio}
       </div>
       </div>
-      <div className="characters-block">
-      <h2>Characters</h2>
       <div className="characters-list">
+      <h2>Characters</h2>
+      <div className="list">
+      <CharactersList type="player" player={this.state.member.name}/>
       </div>
       </div>
       <div className="campaigns">
       <h2>Campaigns</h2>
-      <div className="campaigns-list">
+      <div className="list">
+      <CampaignsList type="dm" dm={this.state.member.name}/>
       </div>
       </div>
       </div>

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import firebase from "../../config/fbconfig"
 
-import Medium from "../icons/medium";
 import CharactersList from "../lists/characters-list";
+import CampaignList from "../lists/campaigns-list"
 
 class Character extends Component {
   constructor(props) {
@@ -95,20 +95,26 @@ class Character extends Component {
                     </tbody>
                   </table>
                 </div>
+                <div className="far-right">
                 <div className="bio">
                   <h2>Bio</h2>
                   <p>{this.state.character.bio}</p>
                 </div>
+                <div className='list'>
+                <CampaignList type='character' campaign={this.state.character.campaign} />
+                </div>
+                </div>
               </div>
             </div>
           </div>
-          <div className="associates">
+          <div className="characters-list">
             <h2>Associates</h2>
-            <div className="associates-wrapper">
-              <div className="assocaites-list">
-                {this.state.associates}
+              <div className="list">
+                <CharactersList 
+                type="character" 
+                campaign={this.state.character.campaign} 
+                id={this.state.character.id}/>
               </div>
-            </div>
           </div>
         </div>
         <div className="bottom-section">

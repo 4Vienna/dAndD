@@ -8,8 +8,8 @@ render(){
 return (
 <div>
 <h1>Campaigns</h1>
-<div className="campaign-wrapper">
-<CampaignsList />
+<div className="list">
+<CampaignsList type="all" />
 </div>
 </div>
 );

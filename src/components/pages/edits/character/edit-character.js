@@ -8,12 +8,10 @@ export default class EditCharacters extends Component {
       
     return (
       <div>
-        <div className="characters-list">
+          <div className="characters-list">
           <h2>Characters</h2>
-          <div className="list">
-          
+          <CharactersList type="slider" />
           </div>
-        </div>
         <div className="edit-form">
         <CharForm/>
         </div>

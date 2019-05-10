@@ -11,6 +11,32 @@ class CampaignsList extends Component {
       campaigns: []
     };
   }
+  renderCampaigns(props){
+    const campaignRecords = this.state.campaigns.map(icon =>{
+      return <Medium key={icon.id} icon={icon} type="campaign" />
+    })
+    if(this.props.type == 'all'){
+      return campaignRecords
+    } else if (this.props.type == "character"){
+      let iconList = this.state.campaigns.map(icon=>{
+        if (icon.name == this.props.campaign){
+        return <Medium key={icon.id} icon={icon} type="campaign"/>
+        }else{
+          return
+        }
+      })
+      return iconList
+    } else if (this.props.type == "dm"){
+      let iconList = this.state.campaigns.map(icon=>{
+        if (icon.dm == this.props.dm){
+        return <Medium key={icon.id} icon={icon} type="campaign"/>
+        }else{
+          return
+        }
+      })
+      return iconList
+    }
+    }
   getCampaigns(){
     const db = firebase.firestore();
     var campaignsRef = db.collection('campaigns');
@@ -34,12 +60,7 @@ class CampaignsList extends Component {
   }
 
   render() {
-    const campaignRecords = this.state.campaigns.map(icon =>{
-      return <Medium key={icon.id} icon={icon} type="campaign" />
-    })
-    return <div className="list">
-    {campaignRecords}
-    </div>;
+    return this.renderCampaigns()
   }
 }
 export default CampaignsList;
