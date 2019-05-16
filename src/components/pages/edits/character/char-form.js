@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase from "../../../config/fbconfig"
+import firebase from "../../../config/fb-config"
 import DropzoneComponent from "react-dropzone-component"
 
 
@@ -10,18 +10,23 @@ class CharForm extends Component {
         super(props);
 
         this.state={
-            characters: [],
-            character: {
-                name: '',
-                fullname: '',
-                race: 'Dragonborn',
-                subrace: '',
-                class: 'Barbarian',
-                bio: ''
-            },
-            charclass: [],
-            race: [],
-            subclass: [],
+              name: '',
+              fullname: '',
+              alignment: '',
+              age: 0,
+              race: 'Dragonborn',
+              subrace: '',
+              class: 'Barbarian',
+              subclass: '',
+              bio: '',
+              height: '',
+              weight: '',
+              eyes: '',
+              hair:'',
+              skin:'',
+              other: '',
+            classlist: [],
+            racelist: [],
         }
         this.handleChange=this.handleChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
@@ -40,12 +45,12 @@ class CharForm extends Component {
         var raceRef = db.collection('race');
         var allrace = raceRef.get()
       .then(snapshot => {
-        let race = []
+        let racelist = []
         snapshot.forEach(doc => {
-          race.push({...doc.data()});
+          racelist.push({...doc.data()});
         });
         this.setState({
-          race,
+          racelist,
         })
       })
       .catch(err => {
@@ -57,12 +62,12 @@ class CharForm extends Component {
         var classRef = db.collection('class');
         var allclass = classRef.get()
       .then(snapshot => {
-        let charclass = []
+        let classlist = []
         snapshot.forEach(doc => {
-          charclass.push({...doc.data()});
+          classlist.push({...doc.data()});
         });
         this.setState({
-          charclass,
+          classlist,
         })
       })
       .catch(err => {
@@ -75,32 +80,39 @@ class CharForm extends Component {
       }
 
     render() {
-        let characterRace = this.state.race.map(race =>{
+        let characterRace = this.state.racelist.map(race =>{
             return <option key={race.id} value={race.id}>{race.name}</option>
           })
-          let characterClass = this.state.charclass.map(info =>{
+          let subRace = this.state.racelist.map(race=>{
+            let current = this.state.race;
+            if(race == current){
+              race.subrace.map(sub=>{
+                return
+              })
+            }
+          })
+          let characterClass = this.state.classlist.map(info =>{
             return <option key={info.id} value={info.id}>{info.name}</option>
           })
-          let subClass = ()=>{
-            let currentclass = this.state.character.class;
-            this.state.charclass.map(info =>{
-              return <option 
-              key={info.subclass.id} 
-              value={info.subclass.id}>
-              {info.subclass.name}</option>
-            })
-          }
+          let subClass = this.state.classlist.map(info =>{
+            let current = this.state.class
+            if (info.name == current){
+              info.subclass.map(sub=>{
+                return<option key={sub} value={sub}>{sub}</option>
+              })
+            }
+          })
         return (
             <form onSubmit={this.handleSubmit} className="char-form-wrapper">
             <div className="form-content">
             <div className="left-column">
             <h2>Basic Info</h2>
-                <div className="name">
+                <div className="row">
                     <input
                     type="text"
                     name="name"
                     placeholder="Character Name"
-                    value={this.state.character.name}
+                    value={this.state.name}
                     onChange={this.handleChange}
                     />
 
@@ -108,16 +120,38 @@ class CharForm extends Component {
                     type="text"
                     name="fullname"
                     placeholder="Full Name"
-                    value={this.state.character.fullname}
+                    value={this.state.fullname}
                     onChange={this.handleChange}
                     />
                 </div>
-                <div className="race">
+                <div className="row">
+                <div>
+                  Alignment
+                <input
+                    type="text"
+                    name="alignment"
+                    placeholder="Alignment"
+                    value={this.state.alignment}
+                    onChange={this.handleChange}
+                    />
+                    </div>
+                    <div>
+                      Age
+                 <input
+                    type="number"
+                    name="age"
+                    value={this.state.age}
+                    onChange={this.handleChange}
+                    />
+                    </div>
+                    </div>
+                <div className="row">
                 <div className="main-race">
                 <h3>Race</h3>
                 <select
                     type="text"
                     name="race"
+                    value={this.state.race}
                     onChange={this.handleChange}>
                     {characterRace}
                     </select>
@@ -125,22 +159,20 @@ class CharForm extends Component {
                     <div className="subrace">
                     <h3>Subrace</h3>
                     <select
-                    name="class"
-                    value={this.state.race.subrace}
+                    name="subrace"
+                    value={this.state.subrace}
                     onChange={this.handleChange}>
-                    <option value="forrest">Forrest</option>
-                    <option value="hill">Hill</option>
-                    <option value="black">Black</option>
+                    {subRace}
                     </select>
                     </div>
                 </div>
-                <div className="class">
+                <div className="row">
                 <div className="main-class">
                 <h3>Class</h3>
                     <select
                     type="text"
                     name="class"
-                    value={this.state.charclass}
+                    value={this.state.class}
                     onChange={this.handleChange}>
                     {characterClass}
                     </select>
@@ -148,8 +180,8 @@ class CharForm extends Component {
                     <div className="subclass">
                     <h3>Subclass</h3>
                     <select
-                    name="class"
-                    value={this.state.charclass.subclass}
+                    name="subclass"
+                    value={this.state.subclass}
                     onChange={this.handleChange}>
                     {subClass}
                     </select>
@@ -160,7 +192,7 @@ class CharForm extends Component {
                     type="text"
                     name="bio"
                     placeholder="Character Bio"
-                    value={this.state.character.bio}
+                    value={this.state.bio}
                     onChange={this.handleChange}
                     />
                 </div>
@@ -169,50 +201,72 @@ class CharForm extends Component {
                 </div>
                 <div className="right-column">
                 <h2>Appearence</h2>
-                hair
+                <div className="appearance-wrapper">
+                <div className="row">
+                <div className="hair-wrapper">
+                Hair
                 <input
                     type="text"
                     name="hair"
                     placeholder="hair"
-                    value={this.state.character.hair}
+                    value={this.state.hair}
                     onChange={this.handleChange}
                     />
-                eyes 
+                    </div>
+                  <div className="eyes-wrapper">
+                  Eyes
                 <input
                     type="text"
                     name="eyes"
                     placeholder="Eye Color"
-                    value={this.state.character.eyes}
+                    value={this.state.eyes}
                     onChange={this.handleChange}
                     />
+                    </div>
+                    </div>
+                    <div className="row">
+                  <div className="skin-wrapper">
+                  Skin
                 <input
                     type="text"
                     name="skin"
                     placeholder="skin"
-                    value={this.state.character.skin}
+                    value={this.state.skin}
                     onChange={this.handleChange}
                     />
+                    </div>
+                    </div>
+                    <div className="height-wrapper">
+                    Height
                 <input
                     type="text"
                     name="height"
-                    placeholder="height"
-                    value={this.state.character.height}
+                    placeholder="5'8"
+                    value={this.state.height}
                     onChange={this.handleChange}
                     />
+                    </div>
+                    <div>
+                      Weight
                 <input
                     type="text"
                     name="weight"
-                    placeholder="weight"
-                    value={this.state.character.weight}
+                    placeholder="100lbs"
+                    value={this.state.weight}
                     onChange={this.handleChange}
                     />
+                    </div>
+                    <div className="characteristics">
+                      Other Characteristics
                 <input
                     type="text"
                     name="other"
                     placeholder="Other physical Characteristics"
-                    value={this.state.character.other}
+                    value={this.state.other}
                     onChange={this.handleChange}
                     />
+                    </div>
+                </div>
                 </div>
                     <button className="btn" type="submit">Save</button>
             </div>

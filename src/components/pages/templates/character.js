@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import firebase from "../../config/fbconfig"
+import firebase from "../../config/fb-config"
 
 import CharactersList from "../lists/characters-list";
 import CampaignList from "../lists/campaigns-list"

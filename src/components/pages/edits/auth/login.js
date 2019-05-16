@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import 'firebase/auth';
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -33,7 +33,6 @@ export default class Login extends Component {
     return (
       <div>
         <h1>LOGIN</h1>
-
         <div>{this.state.errorText}</div>
         <form onSubmit={this.handleSubmit} className="auth-form-wrapper">
           <div className="form-group">

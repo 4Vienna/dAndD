@@ -6,15 +6,10 @@
         grid-gap: 20px;
     }
     
-    .name{
+    .row{
         @include two-column();
         grid-column-gap: 20px;
-    }
-    .race{
-        @include two-column();
-    }
-    .class{
-        @include two-column();
+        margin: 20px;
     }
     @include input-element();
     input{
@@ -23,5 +18,12 @@
     textarea{
         width: 48vw;
         min-height: 120px;
+    }
+    .appearance-wrapper{
+        @include two-column();
+        grid-column-gap: 20px;
+    }
+    .characteristics{
+        margin-top: 20px;
     }
 }

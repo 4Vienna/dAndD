@@ -81,7 +81,7 @@
     "react-router-dom": "^4.3.1",
     "react-slick": "^0.24.0",
     "react-slideshow-image": "^1.1.5",
-    "react-with-firebase-auth": "^1.0.2",
+    "react-with-firebase-auth": "^1.0.3",
     "redux": "^3.7.2",
     "redux-firestore": "^0.7.3",
     "redux-thunk": "^2.3.0",

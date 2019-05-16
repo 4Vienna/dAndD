@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Large from "../icons/large"
-import firebase from "../../config/fbconfig"
+import firebase from "../../config/fb-config"
 
 class MembersList extends Component {
     constructor(props){

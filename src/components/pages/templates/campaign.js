@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import firebase from "../../config/fbconfig"
+import firebase from "../../config/fb-config"
 
 import CharactersList from "../lists/characters-list"
 
