@@ -6,7 +6,8 @@ const Small = props => {
 
   return (
     <Link to={`/character/${id}`} 
-    className="icons">
+    className="icons"
+    >
     <div className="image"
     style={{
       backgroundImage: "url(" + pic + ")"

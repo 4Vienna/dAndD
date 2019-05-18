@@ -22,7 +22,11 @@
         .bio {
           @include float-box();
           min-width: 300px;
-          height: 400px
+          height: 400px;
+          p {
+            height: 340px;
+            overflow: scroll;
+          }
         }
       }
     }

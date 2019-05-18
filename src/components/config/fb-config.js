@@ -11,7 +11,7 @@ var config = {
     storageBucket: "bdguild-04.appspot.com",
     messagingSenderId: "1072720111468"
   };
-  firebase.initializeApp(config);
+ firebase.initializeApp(config);
 
 
   export default firebase;

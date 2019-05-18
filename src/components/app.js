@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import background from "../../static/assets/images/main-background.jpg";
 
+import firebase from "./config/fb-config"
+
 import Home from "./pages/home";
 import NavBar from "./pages/navBar";
 import Auth from "./pages/edits/auth/auth";
@@ -22,6 +24,42 @@ export default class App extends Component {
     super(props);
 
     Icons();
+
+    this.state = {
+      loggedInStatus: "NOT_LOGGED_IN"
+    };
+    this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
+    this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
+    this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
+    this.checkLoggedInStatus = this.checkLoggedInStatus.bind(this);
+  }
+  handleSuccessfulLogin() {
+    this.setState({
+      loggedInStatus: "LOGGED_IN"
+    });
+  }
+
+  handleUnsuccessfulLogin() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN"
+    });
+  }
+
+  handleSuccessfulLogout() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN"
+    });
+  }
+
+  checkLoggedInStatus(){
+    firebase.auth().onAuthStateChanged(user=>{
+      this.setState({
+        loggedInStatus: "LOGGED_IN"
+      })
+    })
+  }
+  componentDidMount(){
+    this.checkLoggedInStatus()
   }
 
   render() {
@@ -29,7 +67,10 @@ export default class App extends Component {
       <div className="app" style={{ backgroundImage: `url(${background})` }}>
         <Router>
           <div className="screen">
-            <NavBar />
+            <NavBar 
+            loggedInStatus={this.state.loggedInStatus}
+            handleSuccessfulLogout={this.handleSuccessfulLogout}
+            />
             <div className="display">
               <Switch>
                 <Route exact path="/" component={Home} />
@@ -40,7 +81,16 @@ export default class App extends Component {
                 <Route path="/members" component={Members} />
                 <Route path="/member/:slug" component={Member} />
                 <Route path="/rules" component={Rules} />
-                <Route path="/login" component={Auth} />
+                <Route
+                path="/login"
+                render={props => (
+                  <Auth
+                    {...props}
+                    handleSuccessfulLogin={this.handleSuccessfulLogin}
+                    handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
+                  />
+                )}
+              />
                 <Route path="/edit-characters" component={EditCharacters}/>
                 <Route component={NoMatch} />
               </Switch>

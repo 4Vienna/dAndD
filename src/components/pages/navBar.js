@@ -1,13 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
+import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
-export default class NavBar extends Component {
-  constructor() {
-    super();
-  }
+const NavBar = props => {
 
-  render() {
+  const handleSignOut = () => {
+    firebase.auth().signOut()
+    .catch(error => {
+      console.log("Error signing out", error);
+    });
+          props.history.push("/");
+  };
+
     return (
       <div className="nav-wapper">
         <h3 className="button">
@@ -36,14 +43,19 @@ export default class NavBar extends Component {
                 <FontAwesomeIcon icon="book" />
                 Rules as Written
               </Link>
-              <Link to="/login">
-                <FontAwesomeIcon icon="lock" />
-                Login
-              </Link>
+              {props.loggedInStatus === "LOGGED_IN" ? (
+          <a onClick={handleSignOut}>
+          <FontAwesomeIcon icon="sign-out-alt" />
+          Sign Out
+          </a>
+          ) : <Link to="/login">
+          <FontAwesomeIcon icon="lock" />
+          Login
+        </Link>}
             </div>
           </div>
-
+                <div>{props.loggedInStatus}</div>
       </div>
     );
   }
-}
+  export default withRouter(NavBar);

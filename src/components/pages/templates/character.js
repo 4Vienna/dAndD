@@ -14,9 +14,6 @@ class Character extends Component {
       associates: []
     };
   }
-  getAssociates(){
-
-  }
 
   getCharacter(){
     const db = firebase.firestore();
@@ -28,9 +25,8 @@ class Character extends Component {
   });
 }
 
-  componentDidMount(){
+  componentDidUpdate(){
     this.getCharacter()
-    this.getAssociates()
   }
 
   render() {
@@ -113,7 +109,8 @@ class Character extends Component {
                 <CharactersList 
                 type="character" 
                 campaign={this.state.character.campaign} 
-                id={this.state.character.id}/>
+                id={this.state.character.id}
+                />
               </div>
           </div>
         </div>

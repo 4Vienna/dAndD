@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
 
-
+import firebase, { app } from '../../../config/fb-config';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class Login extends Component {
@@ -10,7 +11,8 @@ export default class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      errorText: ""
+      errorText: "",
+      redirect: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -18,8 +20,24 @@ export default class Login extends Component {
   }
 
   handleSubmit(event){
+    firebase.auth()
+    .signInWithEmailAndPassword(this.state.email, this.state.password)
+    .then(u =>{
+      if(u.operationType === "signIn") {
+        this.props.handleSuccessfulAuth();
+    }else{
+        this.setState({
+            errorText: "Wrong email or password"
+        })
+    }
+    })
+    .catch(error=>{
+      this.props.handleUnsuccessfulAuth;
+      this.setState({
+        errorText: error.message
+      })
+    })
     event.preventDefault();
-    console.log(this.state)
   }
 
   handleChange(event) {
@@ -30,6 +48,9 @@ export default class Login extends Component {
   }
 
   render() {
+    if (this.state.redirect === true){
+      return <Redirect to='/'/>
+    }
     return (
       <div>
         <h1>LOGIN</h1>
