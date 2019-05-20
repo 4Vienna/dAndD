@@ -56,6 +56,7 @@ export default class EditCharacters extends Component {
             handleNewFormSubmission={this.handleNewFormSubmission}
             handleEditFormSubmission={this.handleEditFormSubmission}
             clearCharacterToEdit={this.clearCharacterToEdit}
+            handleEditClick={this.handleEditClick}
             characterToEdit={this.state.characterToEdit}
           />
         </div>
@@ -64,7 +65,6 @@ export default class EditCharacters extends Component {
           <div className="list">
             <CharactersList
               type="edit"
-              handleDeleteClick={this.handleDeleteClick}
               handleEditClick={this.handleEditClick}
             />
           </div>

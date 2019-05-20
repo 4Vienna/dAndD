@@ -11,6 +11,7 @@ class CharForm extends Component {
 
     this.state = {
       name: "",
+      id: "",
       fullname: "",
       alignment: "",
       age: 0,
@@ -32,11 +33,60 @@ class CharForm extends Component {
       classlist: [],
       racelist: [],
       campaignslist: [],
-      members: [],
-      subclasslist: []
+      members: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (Object.keys(this.props.characterToEdit).length > 1) {
+      const {
+        name,
+        fullname,
+        alignment,
+        age,
+        campaign,
+        player,
+        race,
+        subrace,
+        charclass,
+        subclass,
+        bio,
+        height,
+        weight,
+        eyes,
+        hair,
+        skin,
+        other,
+        pic
+      } = this.props.characterToEdit;
+
+      this.props.clearCharacterToEdit();
+
+      this.setState({
+        name: name || "",
+        fullname: fullname || "",
+        alignment: alignment || "",
+        age: age || 0,
+        campaign: campaign || "Empires Fall",
+        player: player || "Eli",
+        race: race || "Aarakcra",
+        subrace: subrace || "",
+        class: charclass || "Barbarian",
+        subclass: subclass || "Path of the Berserker",
+        bio: bio || "",
+        height: height || "",
+        weight: weight || "",
+        eyes: eyes || "",
+        hair: hair || "",
+        skin: skin || "",
+        other: other || "",
+        pic:
+          pic ||
+          "https://lh3.googleusercontent.com/m8xVtGYOTorBiE2G40kR4sceR1vFoOp5KyJPW-05e0Xxh27t4p38PPiA3qhg6ZdOzNeMUvM6toVEjMIjjkFpnX5SYemUlHXl5DO9JDN5Qre8kV3bYCBiAW8BNE5b3-LrXRG74Au-VjEbDMGUWIS5wCaG8CLuQEgviI-CoTX8m_jUtUyclmWdgiwjpB3tBSfBkuYb7mWygdSW9-M91qiVhj5H6PrEvB7NSf0KWDZzpA3BvWBU-8Qyha1sbELm_d3rKIC-kj1VWpvKQX8PGOGshL0GBIlEO_lL2kN0O2ALtOi-cabB2pe9TKkxfd_gTYs8A7-YDt98tNSqf-AO-TI165Gq_wRqZOGpbZ_6BQrh7BpuOd0izWITxx3Kh9njYbH6zcGMhGUqC7Zf2JIhz1dRsAdoYTYj5UzaaPBgqoEsy49M3jAza82aySrx_srPnefzjzwqIJdxJQvUmoS7LUSPlr3GSgc6AiKNehNjzVIFWWRAT_TmAyH1zWgvpiHWZKuAdd17WHohdrybvIbcV09qWOuedIyY98RzJM_hM9AMSwbGxb9bH8vJM07eJS75L2XVfbh3WAdjOmlECq09n0eGvr2JtlqbpvuVR4-Ais8hK0qHyAQ1jub41jWMm4WJRS7iBmdBPE7ihWoXnh_QnlM2GpjUqlTRH5bv5ctXtos9zX2mLSn79KzIHzQtWuYxoEbMKMLGxSvCWu6qBEfdupAvBp0=s225-no"
+      });
+    }
   }
   handlePicDrop() {
     return {
@@ -47,6 +97,7 @@ class CharForm extends Component {
   handleSubmit(event) {
     let character = {
       name: this.state.name,
+      id: this.state.name.toLowerCase(),
       fullname: this.state.fullname,
       name: this.state.name,
       alignment: this.state.alignment,

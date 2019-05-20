@@ -68,7 +68,7 @@ class CharactersList extends Component {
             className="icons"
             key={icon.id}
             onClick={() => {
-              props.handleEditClick();
+              this.props.handleEditClick(icon);
             }}
           >
             <div
@@ -78,17 +78,7 @@ class CharactersList extends Component {
               }}
             />
             <div className="info">
-              <div className="name">
-                {icon.name}
-                <a
-                  className="action-icon"
-                  onClick={() => {
-                    props.handleDeleteClick(portfolioItem);
-                  }}
-                >
-                  <FontAwesomeIcon icon="trash" />
-                </a>
-              </div>
+              <div className="name">{icon.name}</div>
             </div>
           </div>
         );
