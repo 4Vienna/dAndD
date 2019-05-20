@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import background from "../../static/assets/images/main-background.jpg";
 
-import firebase from "./config/fb-config"
+import firebase from "./config/fb-config";
 
 import Home from "./pages/home";
 import NavBar from "./pages/navBar";
@@ -17,7 +17,7 @@ import Rules from "./pages/rules";
 import Contact from "./pages/contact";
 import NoMatch from "./pages/no-match";
 import Icons from "./helpers/icons";
-import EditCharacters from "./pages/edits/character/edit-character"
+import EditCharacters from "./pages/edits/character/edit-character";
 
 export default class App extends Component {
   constructor(props) {
@@ -51,15 +51,24 @@ export default class App extends Component {
     });
   }
 
-  checkLoggedInStatus(){
-    firebase.auth().onAuthStateChanged(user=>{
+  checkLoggedInStatus() {
+    firebase.auth().onAuthStateChanged(user => {
       this.setState({
         loggedInStatus: "LOGGED_IN"
-      })
-    })
+      });
+    });
   }
-  componentDidMount(){
-    this.checkLoggedInStatus()
+  componentDidMount() {
+    this.checkLoggedInStatus();
+  }
+  authorizedPages() {
+    return [
+      <Route
+        key="characters-edit"
+        path="/characters-edit"
+        component={EditCharacters}
+      />
+    ];
   }
 
   render() {
@@ -67,9 +76,9 @@ export default class App extends Component {
       <div className="app" style={{ backgroundImage: `url(${background})` }}>
         <Router>
           <div className="screen">
-            <NavBar 
-            loggedInStatus={this.state.loggedInStatus}
-            handleSuccessfulLogout={this.handleSuccessfulLogout}
+            <NavBar
+              loggedInStatus={this.state.loggedInStatus}
+              handleSuccessfulLogout={this.handleSuccessfulLogout}
             />
             <div className="display">
               <Switch>
@@ -81,17 +90,20 @@ export default class App extends Component {
                 <Route path="/members" component={Members} />
                 <Route path="/member/:slug" component={Member} />
                 <Route path="/rules" component={Rules} />
+                {this.state.loggedInStatus === "LOGGED_IN"
+                  ? this.authorizedPages()
+                  : null}
                 <Route
-                path="/login"
-                render={props => (
-                  <Auth
-                    {...props}
-                    handleSuccessfulLogin={this.handleSuccessfulLogin}
-                    handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
-                  />
-                )}
-              />
-                <Route path="/edit-characters" component={EditCharacters}/>
+                  path="/login"
+                  render={props => (
+                    <Auth
+                      {...props}
+                      handleSuccessfulLogin={this.handleSuccessfulLogin}
+                      handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
+                    />
+                  )}
+                />
+                <Route path="/edit-characters" component={EditCharacters} />
                 <Route component={NoMatch} />
               </Switch>
             </div>

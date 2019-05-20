@@ -1,38 +1,38 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import firebase from "../../config/fb-config"
+import firebase from "../../config/fb-config";
 
 import CharactersList from "../lists/characters-list";
-import CampaignList from "../lists/campaigns-list"
+import CampaignList from "../lists/campaigns-list";
 
 class Character extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      character: {},
-      associates: []
+      character: {}
     };
   }
 
-  getCharacter(){
+  getCharacter() {
     const db = firebase.firestore();
-    var charRef = db.doc(`characters/${this.props.match.params.slug}`)
-    .get()
-    .then(doc => this.setState({ character: doc.data()}))
-  .catch(err => {
-    console.log('Error getting documents', err);
-  });
-}
+    var charRef = db
+      .doc(`characters/${this.props.match.params.slug}`)
+      .get()
+      .then(doc => this.setState({ character: doc.data() }))
+      .catch(err => {
+        console.log("Error getting documents", err);
+      });
+  }
 
-  componentDidUpdate(){
-    this.getCharacter()
+  componentDidUpdate() {
+    this.getCharacter();
   }
 
   render() {
     return (
       <div className="page">
-          <h1 className="name">{this.state.character.name}</h1>
+        <h1 className="name">{this.state.character.name}</h1>
         <div className="body">
           <div className="body-top">
             <div
@@ -49,7 +49,13 @@ class Character extends Component {
                     <tbody>
                       <tr>
                         <td>Player</td>
-                        <td>{<Link to={`/member/${this.state.character.player}`}>{this.state.character.player}</Link>}</td>
+                        <td>
+                          {
+                            <Link to={`/member/${this.state.character.player}`}>
+                              {this.state.character.player}
+                            </Link>
+                          }
+                        </td>
                       </tr>
                       <tr>
                         <td>Full Name</td>
@@ -57,11 +63,18 @@ class Character extends Component {
                       </tr>
                       <tr>
                         <td>Race</td>
-                        <td>{this.state.character.race}: {this.state.character.subrace}</td>
+                        <td>
+                          {this.state.character.race}:{" "}
+                          {this.state.character.subrace}
+                        </td>
                       </tr>
                       <tr>
                         <td>Class</td>
-                        <td>{this.state.character.class}: {this.state.character.subclass} {this.state.character.patron}</td>
+                        <td>
+                          {this.state.character.class}:{" "}
+                          {this.state.character.subclass}{" "}
+                          {this.state.character.patron}
+                        </td>
                       </tr>
                       <tr>
                         <td>Alignment</td>
@@ -92,32 +105,35 @@ class Character extends Component {
                   </table>
                 </div>
                 <div className="far-right">
-                <div className="bio">
-                  <h2>Bio</h2>
-                  <p>{this.state.character.bio}</p>
-                </div>
-                <div className='list'>
-                <CampaignList type='character' campaign={this.state.character.campaign} />
-                </div>
+                  <div className="bio">
+                    <h2>Bio</h2>
+                    <p>{this.state.character.bio}</p>
+                  </div>
+                  <div className="list">
+                    <CampaignList
+                      type="character"
+                      campaign={this.state.character.campaign}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="characters-list">
             <h2>Associates</h2>
-              <div className="list">
-                <CharactersList 
-                type="character" 
-                campaign={this.state.character.campaign} 
+            <div className="list">
+              <CharactersList
+                type="character"
+                campaign={this.state.character.campaign}
                 id={this.state.character.id}
-                />
-              </div>
+              />
+            </div>
           </div>
         </div>
         <div className="bottom-section">
           <div className="characters-list">
-          <h2>Characters</h2>
-          <CharactersList type="slider" />
+            <h2>Characters</h2>
+            <CharactersList type="slider" />
           </div>
         </div>
       </div>

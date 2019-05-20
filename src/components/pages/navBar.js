@@ -6,15 +6,26 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 const NavBar = props => {
+  const dynamicLink = (route, linkText, icon) => {
+    return(
+      <div>
+            <Link to={route}>
+            <FontAwesomeIcon icon={icon} />
+              {linkText}
+            </Link>
+          </div>
+    );
+  }
 
   const handleSignOut = () => {
-    firebase.auth().signOut()
+    firebase.auth().signOut().then(e =>{
+      props.handleSuccessfulLogout();
+    })
     .catch(error => {
       console.log("Error signing out", error);
     });
           props.history.push("/");
   };
-
     return (
       <div className="nav-wapper">
         <h3 className="button">
@@ -35,10 +46,13 @@ const NavBar = props => {
                 <FontAwesomeIcon icon="dragon" />
                 Campaigns
               </Link>
+            {props.loggedInStatus === "LOGGED_IN" ?  
+            dynamicLink("/characters-edit","Character", "theater-masks"): 
               <Link to="/characters">
                 <FontAwesomeIcon icon="theater-masks" />
                 Characters
               </Link>
+            }
               <Link to="/rules">
                 <FontAwesomeIcon icon="book" />
                 Rules as Written

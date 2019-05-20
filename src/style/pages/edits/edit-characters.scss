@@ -1,6 +1,17 @@
 .characters-list{
     @include float-box();
+    min-height: 180px;
+    .list{
+        @include icon();
+        filter: brightness(100%);
+        icons{
+            @include link()
+        }
+    }
 }
 edit-form{
     @include float-box();
+}
+.image-uploader{
+    margin-top: 50px;
 }
