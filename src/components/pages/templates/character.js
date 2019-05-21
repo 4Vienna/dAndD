@@ -71,7 +71,7 @@ class Character extends Component {
                       <tr>
                         <td>Class</td>
                         <td>
-                          {this.state.character.class}:{" "}
+                          {this.state.character.charclass}:{" "}
                           {this.state.character.subclass}{" "}
                           {this.state.character.patron}
                         </td>

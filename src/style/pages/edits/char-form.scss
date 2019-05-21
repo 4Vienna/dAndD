@@ -1,29 +1,33 @@
-.char-form-wrapper{
-    @include float-box();
-    padding: 42px;
-    .form-content{
-        @include two-column();
-        grid-gap: 20px;
-    }
-    
-    .row{
-        @include two-column();
-        grid-column-gap: 20px;
-        margin: 20px;
-    }
-    @include input-element();
-    input{
-        margin-bottom: 0px;
-    }
-    textarea{
-        width: 48vw;
-        min-height: 120px;
-    }
-    .appearance-wrapper{
-        @include two-column();
-        grid-column-gap: 20px;
-    }
-    .characteristics{
-        margin-top: 20px;
-    }
+.char-form-wrapper {
+  @include float-box();
+  padding: 42px;
+  .form-content {
+    @include two-column();
+    grid-gap: 20px;
+  }
+
+  .row {
+    @include two-column();
+    grid-column-gap: 20px;
+    margin: 20px;
+  }
+  @include input-element();
+  input {
+    margin-bottom: 0px;
+  }
+  textarea {
+    width: 48vw;
+    min-height: 120px;
+  }
+  .appearance-wrapper {
+    @include two-column();
+    grid-column-gap: 20px;
+  }
+  .characteristics {
+    margin-top: 20px;
+  }
+  img {
+    height: 200px;
+    width: 200px;
+  }
 }

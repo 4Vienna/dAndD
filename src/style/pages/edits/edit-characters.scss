@@ -1,17 +1,31 @@
-.characters-list{
-    @include float-box();
-    min-height: 180px;
-    .list{
-        @include icon();
-        filter: brightness(100%);
-        icons{
-            @include link()
+.characters-list {
+  @include float-box();
+  min-height: 180px;
+  .list {
+    filter: brightness(100%);
+    .icons {
+      height: 100px;
+      position: relative;
+      @include icon();
+      filter: brightness(100%);
+      .info {
+        @include link();
+        &:hover {
+          color: $accentTwo;
         }
+        .delete {
+          &:hover {
+            color: red;
+          }
+        }
+      }
     }
+  }
 }
-edit-form{
-    @include float-box();
+edit-form {
+  @include float-box();
 }
-.image-uploader{
-    margin-top: 50px;
+.image-uploader {
+  margin-top: 50px;
+  width: 200px;
 }

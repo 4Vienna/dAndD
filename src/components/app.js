@@ -18,6 +18,7 @@ import Contact from "./pages/contact";
 import NoMatch from "./pages/no-match";
 import Icons from "./helpers/icons";
 import EditCharacters from "./pages/edits/character/edit-character";
+import EditCampaigns from "./pages/edits/campaigns/edit-campaign";
 
 export default class App extends Component {
   constructor(props) {
@@ -67,6 +68,11 @@ export default class App extends Component {
         key="characters-edit"
         path="/characters-edit"
         component={EditCharacters}
+      />,
+      <Route
+        key="campaigns-edit"
+        path="/campaigns-edit"
+        component={EditCampaigns}
       />
     ];
   }

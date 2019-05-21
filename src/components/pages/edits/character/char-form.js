@@ -19,8 +19,9 @@ class CharForm extends Component {
       player: "Eli",
       race: "Aarakcra",
       subrace: "",
-      class: "Barbarian",
+      charclass: "Barbarian",
       subclass: "Path of the Berserker",
+      patron: "",
       bio: "",
       height: "",
       weight: "",
@@ -39,6 +40,22 @@ class CharForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  deleteImage(pic) {
+    firebase
+      .firestore()
+      .collection("characters")
+      .doc(`${character.id}/pic`)
+      .delete()
+      .then(response => {
+        this.setState({
+          [pic]: ""
+        });
+      })
+      .catch(error => {
+        console.log("deleteImage error", error);
+      });
+  }
+
   componentDidUpdate() {
     if (Object.keys(this.props.characterToEdit).length > 0) {
       const {
@@ -53,6 +70,7 @@ class CharForm extends Component {
         subrace,
         charclass,
         subclass,
+        patron,
         bio,
         height,
         weight,
@@ -75,8 +93,9 @@ class CharForm extends Component {
         player: player || "Eli",
         race: race || "Aarakcra",
         subrace: subrace || "",
-        class: charclass || "Barbarian",
+        charclass: charclass || "Barbarian",
         subclass: subclass || "Path of the Berserker",
+        patron: patron || "",
         bio: bio || "",
         height: height || "",
         weight: weight || "",
@@ -99,7 +118,7 @@ class CharForm extends Component {
   handleSubmit(event) {
     let character = {
       name: this.state.name,
-      id: this.state.name.toLowerCase(),
+      id: this.state.name,
       fullname: this.state.fullname,
       name: this.state.name,
       alignment: this.state.alignment,
@@ -108,8 +127,9 @@ class CharForm extends Component {
       player: this.state.player,
       race: this.state.race,
       subrace: this.state.subrace,
-      class: this.state.class,
+      charclass: this.state.charclass,
       subclass: this.state.subclass,
+      patron: this.state.patron,
       bio: this.state.bio,
       height: this.state.height,
       weight: this.state.weight,
@@ -136,8 +156,9 @@ class CharForm extends Component {
       player: "Eli",
       race: "Aarakcra",
       subrace: "",
-      class: "Barbarian",
+      charclass: "Barbarian",
       subclass: "Path of the Berserker",
+      patron: "",
       bio: "",
       height: "",
       weight: "",
@@ -278,10 +299,12 @@ class CharForm extends Component {
       );
     });
     let subClass = this.state.classlist.map(info => {
-      if (info.name === this.state.class) {
-        info.subclass.map(i => {
-          return <option>{i}</option>;
-        });
+      if (info.name == this.state.charclass) {
+        return (
+          <option key={info.id} value={info.subclass}>
+            {info.name}
+          </option>
+        );
       }
     });
     return (
@@ -372,8 +395,8 @@ class CharForm extends Component {
               <h3>Class</h3>
               <select
                 type="text"
-                name="class"
-                value={this.state.class}
+                name="charclass"
+                value={this.state.charclass}
                 onChange={this.handleChange}
               >
                 {characterClass}
@@ -383,8 +406,20 @@ class CharForm extends Component {
                 name="subclass"
                 value={this.state.subclass}
                 onChange={this.handleChange}
+              />
+
+              <h3>Patron</h3>
+              <select
+                name="subclass"
+                value={this.state.patron}
+                onChange={this.handleChange}
               >
-                {subClass}
+                <option value="Archfae">Archfae</option>
+                <option value="Celestial">Celestial</option>
+                <option value="Fiend">Fiend</option>
+                <option value="Great Old One">Great Old One</option>
+                <option value="Hexblade">Hexblade</option>
+                <option value="Undying">Undying</option>
               </select>
             </div>
             <div className="bio">
@@ -467,21 +502,27 @@ class CharForm extends Component {
               </div>
             </div>
             <div className="image-uploader">
-              <DropzoneComponent
-                ref={this.pic}
-                config={this.componentConfig()}
-                djsConfig={this.djsConfig()}
-                eventHandlers={this.handlePicDrop()}
-              >
-                <div className="dz-message">Character Pic</div>
-              </DropzoneComponent>
+              {this.state.pic ? (
+                <div className="portfolio-manager-image-wrapper">
+                  <img src={this.state.pic} />
+                  <div className="image-removal-link">
+                    <a onClick={() => this.deleteImage("pic")}>Remove File</a>
+                  </div>
+                </div>
+              ) : (
+                <DropzoneComponent
+                  ref={this.pic}
+                  config={this.componentConfig()}
+                  djsConfig={this.djsConfig()}
+                  eventHandlers={this.handlePicDrop()}
+                >
+                  <div className="dz-message">Character Pic</div>
+                </DropzoneComponent>
+              )}
             </div>
           </div>
           <button className="btn" type="submit">
             Save
-          </button>
-          <button className="btn" onClick={this.props.handleDeleteClick}>
-            Delete
           </button>
         </div>
       </form>

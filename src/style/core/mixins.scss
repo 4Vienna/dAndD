@@ -31,7 +31,7 @@
   transition: 1s ease-in-out;
   filter: brightness(50%);
 }
-@mixin link{
+@mixin link {
   top: 0;
   display: grid;
   grid-template-columns: 1fr;
@@ -45,13 +45,13 @@
   text-decoration: none;
   font-weight: 600;
   position: absolute;
-  &:hover .info{
+  &:hover .info {
     color: $accentTwo;
     text-shadow: 2px 2px 8px black;
   }
 }
-@mixin input-element{
-  input{
+@mixin input-element {
+  input {
     color: white;
     padding: 5px 0px;
     width: 100%;
@@ -65,7 +65,7 @@
     font-size: 1.1em;
     margin-bottom: 21px;
 
-    &:focus{
+    &:focus {
       outline: none;
       border-bottom: 1px solid $accentTwo;
     }

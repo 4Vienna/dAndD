@@ -80,6 +80,15 @@ class CharactersList extends Component {
             <div className="info">
               <div className="name">{icon.name}</div>
             </div>
+            <div className="delete">
+              <a
+                onClick={() => {
+                  this.props.handleDeleteClick(icon);
+                }}
+              >
+                <FontAwesomeIcon icon="trash" />
+              </a>
+            </div>
           </div>
         );
       });
@@ -105,6 +114,9 @@ class CharactersList extends Component {
       });
   }
   componentDidMount() {
+    this.getCharacters();
+  }
+  componentDidUpdate() {
     this.getCharacters();
   }
 

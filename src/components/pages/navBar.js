@@ -45,10 +45,14 @@ const NavBar = props => {
             <FontAwesomeIcon icon="dice-d20" />
             Members
           </Link>
-          <Link to="/campaigns">
-            <FontAwesomeIcon icon="dragon" />
-            Campaigns
-          </Link>
+          {props.loggedInStatus === "Logged_In" ? (
+            dynamicLink("/campaigns-edit", "Campaign", "dragon")
+          ) : (
+            <Link to="/campaigns">
+              <FontAwesomeIcon icon="dragon" />
+              Campaigns
+            </Link>
+          )}
           {props.loggedInStatus === "LOGGED_IN" ? (
             dynamicLink("/characters-edit", "Character", "theater-masks")
           ) : (
