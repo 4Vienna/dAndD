@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import firebase from "../../../config/fb-config";
+
 import CharactersList from "../../lists/characters-list";
 import CharForm from "./char-form";
 
@@ -27,25 +29,13 @@ export default class EditCharacters extends Component {
     });
   }
 
-  handleDeleteClick(portfolioItem) {
-    axios
-      .delete(
-        `https://api.devcamp.space/portfolio/portfolio_items/${
-          portfolioItem.id
-        }`,
-        { withCredentials: true }
-      )
-      .then(response => {
-        this.setState({
-          portfolioItems: this.state.portfolioItems.filter(item => {
-            return item.id !== portfolioItem.id;
-          })
-        });
-        return response.data;
-      })
-      .catch(error => {
-        console.log("handleDeleteClick error", error);
-      });
+  handleDeleteClick(character, event) {
+    event.preventDefault();
+    firebase
+      .firestore()
+      .collection("characters")
+      .doc(character.id)
+      .delete();
   }
 
   render() {

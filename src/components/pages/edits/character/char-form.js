@@ -40,9 +40,10 @@ class CharForm extends Component {
   }
 
   componentDidUpdate() {
-    if (Object.keys(this.props.characterToEdit).length > 1) {
+    if (Object.keys(this.props.characterToEdit).length > 0) {
       const {
         name,
+        id,
         fullname,
         alignment,
         age,
@@ -66,6 +67,7 @@ class CharForm extends Component {
 
       this.setState({
         name: name || "",
+        id: id || "",
         fullname: fullname || "",
         alignment: alignment || "",
         age: age || 0,
@@ -122,10 +124,11 @@ class CharForm extends Component {
       .firestore()
       .collection("characters")
       .doc(this.state.name)
-      .set(character);
+      .set(character, { merge: true });
     this.props.clearCharacterToEdit();
     this.setState({
       name: "",
+      id: "",
       fullname: "",
       alignment: "",
       age: 0,
@@ -476,6 +479,9 @@ class CharForm extends Component {
           </div>
           <button className="btn" type="submit">
             Save
+          </button>
+          <button className="btn" onClick={this.props.handleDeleteClick}>
+            Delete
           </button>
         </div>
       </form>
