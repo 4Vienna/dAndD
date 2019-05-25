@@ -1,19 +1,24 @@
 .medium-icons {
   position: relative;
-  .image{
+  .image {
     @include icon();
     height: 200px;
     width: 200px;
   }
-  .info{
+  .info {
     @include link();
     font-size: 1.25em;
     padding-left: 65px;
     padding-right: 100px;
-    filter:brightness(100%)
+    filter: brightness(100%);
   }
-  &:hover .info{
+  &:hover .info {
     color: $accentTwo;
     text-shadow: 2px 2px 8px black;
+    .delete {
+      &:hover {
+        color: red;
+      }
+    }
   }
 }

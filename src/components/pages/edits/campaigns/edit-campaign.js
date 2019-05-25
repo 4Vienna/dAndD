@@ -41,6 +41,7 @@ export default class EditCampaigns extends Component {
     return (
       <div>
         <div className="edit-form">
+          <h1>Campaign</h1>
           <CampaignForm
             handleNewFormSubmission={this.handleNewFormSubmission}
             handleEditFormSubmission={this.handleEditFormSubmission}

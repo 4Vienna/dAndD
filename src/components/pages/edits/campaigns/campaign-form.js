@@ -11,10 +11,13 @@ class CampaignForm extends Component {
 
     this.state = {
       name: "",
+      by: "",
       id: "",
       dm: "Eli",
-      descripion: "",
+      description: "",
+      status: "",
       pic: "",
+      banner: "",
       members: []
     };
     this.handleChange = this.handleChange.bind(this);
@@ -39,16 +42,28 @@ class CampaignForm extends Component {
 
   componentDidUpdate() {
     if (Object.keys(this.props.campaignToEdit).length > 0) {
-      const { name, id, pic } = this.props.campaignToEdit;
+      const {
+        name,
+        by,
+        id,
+        pic,
+        dm,
+        description,
+        banner,
+        status
+      } = this.props.campaignToEdit;
 
       this.props.clearCampaignToEdit();
 
       this.setState({
         name: name || "",
         id: id || "",
+        by: by || "",
         dm: dm || "Eli",
         description: description || "",
-        pic: pic || ""
+        banner: banner || "",
+        pic: pic || "",
+        status: status || ""
       });
     }
   }
@@ -59,9 +74,9 @@ class CampaignForm extends Component {
   }
 
   handleSubmit(event) {
-    let character = {
+    let campaign = {
       name: this.state.name,
-      id: this.state.name,
+      id: this.state.name.replace(/\s+/g, "-"),
       dm: this.state.dm,
       description: this.state.description,
       pic: this.state.pic,
@@ -71,15 +86,18 @@ class CampaignForm extends Component {
     firebase
       .firestore()
       .collection("campaigns")
-      .doc(this.state.name)
+      .doc(this.state.id)
       .set(campaign, { merge: true });
     this.props.clearCampaignToEdit();
     this.setState({
       name: "",
+      by: "",
       id: "",
       dm: "Eli",
-      descripion: "",
-      pic: ""
+      description: "",
+      status: "",
+      pic: "",
+      banner: ""
     });
   }
   handleChange(event) {
@@ -135,7 +153,7 @@ class CampaignForm extends Component {
     });
 
     return (
-      <form onSubmit={this.handleSubmit} className="char-form-wrapper">
+      <form onSubmit={this.handleSubmit} className="form-wrapper">
         <div className="form-content">
           <div className="left-column">
             <input
@@ -166,6 +184,19 @@ class CampaignForm extends Component {
                 {dm}
               </select>
             </div>
+            <div className="row">
+              <h3>Status</h3>
+              <select
+                type="text"
+                name="status"
+                value={this.state.status}
+                onChange={this.handleChange}
+              >
+                <option value="Active">Active</option>
+                <option value="Hiatus">Hiatus</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
             <div className="description">
               <textarea
                 type="text"
@@ -175,6 +206,8 @@ class CampaignForm extends Component {
                 onChange={this.handleChange}
               />
             </div>
+          </div>
+          <div className="right-column">
             <div className="image-uploader">
               {this.state.pic ? (
                 <div className="portfolio-manager-image-wrapper">
@@ -212,10 +245,10 @@ class CampaignForm extends Component {
               )}
             </div>
           </div>
-          <button className="btn" type="submit">
-            Save
-          </button>
         </div>
+        <button className="btn" type="submit">
+          Save
+        </button>
       </form>
     );
   }

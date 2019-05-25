@@ -300,7 +300,7 @@ class CharForm extends Component {
       );
     });
     return (
-      <form onSubmit={this.handleSubmit} className="char-form-wrapper">
+      <form onSubmit={this.handleSubmit} className="form-wrapper">
         <div className="form-content">
           <div className="left-column">
             <h2>Basic Info</h2>

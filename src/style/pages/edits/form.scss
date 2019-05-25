@@ -1,9 +1,11 @@
-.char-form-wrapper {
+.form-wrapper {
   @include float-box();
   padding: 42px;
-  .form-content {
-    @include two-column();
-    grid-gap: 20px;
+  @media screen and(min-width: $computer) {
+    .form-content {
+      @include two-column();
+      grid-gap: 20px;
+    }
   }
 
   .row {

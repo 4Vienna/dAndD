@@ -40,7 +40,7 @@ class CampaignsList extends Component {
       const editList = this.state.campaigns.map(icon => {
         return (
           <div
-            className="icons"
+            className="medium-icons"
             key={icon.id}
             onClick={() => {
               this.props.handleEditClick(icon);
