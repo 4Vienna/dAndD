@@ -6,48 +6,74 @@
     color: white;
     width: 100vw;
     .body-top {
-      @include two-column();
-      .char-picture {
-        background-size: cover;
-        background-position: top;
-        height: 597px;
-        margin: 10px;
-      }
-      .top-right {
+      @media screen and (min-width: $computer) {
         @include two-column();
-        justify-items: center;
-        .table {
-          @include float-box();
+        .char-picture {
+          background-size: cover;
+          background-position: top;
+          height: 597px;
+          width: calc(50vw - 25px);
+          margin: 10px;
         }
-        .bio {
-          @include float-box();
-          min-width: 300px;
-          height: 400px;
-          p {
-            height: 340px;
-            overflow: scroll;
+        .top-right {
+          @include two-column();
+          justify-items: center;
+          .table {
+            @include float-box();
+            width: calc(25vw - 20px);
           }
-        }
-      }
-    }
-    .associates {
-      @include float-box();
-      .associates-wrapper {
-        @include two-column();
-        .associate {
-          transition: 0.5s ease-in-out;
-          &:hover {
-            color: $accentOne;
-            cursor: pointer;
+          .bio {
+            @include float-box();
+            width: calc(25vw - 20px);
+            height: 400px;
+            p {
+              height: 340px;
+              overflow: scroll;
+            }
           }
         }
       }
     }
   }
+  @media screen and (max-width: $phone) {
+    display: grid;
+    @include one-column();
+    .char-picture {
+      width: calc(100vw - 25px);
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 300px;
+    }
+    .top-right {
+      justify-items: center;
+      @include two-column();
+      .table {
+        @include float-box();
+        width: calc(50vw - 25px);
+      }
+      .far-right {
+        .bio {
+          @include float-box();
+          width: calc(50vw - 40px);
+          p {
+            height: 340px;
+            overflow: scroll;
+          }
+        }
+        .list {
+          height: 200px;
+        }
+      }
+    }
+  }
+}
+.characters-list {
+  width: calc(100vw - 40px);
+  margin-top: 10px;
 }
 .bottom-section {
   .characters-list {
     height: 13em;
-    width: 98vw;
+    width: calc(100vw - 40px);
   }
 }

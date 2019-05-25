@@ -20,7 +20,7 @@ class CharForm extends Component {
       race: "Aarakcra",
       subrace: "",
       charclass: "Barbarian",
-      subclass: "Path of the Berserker",
+      subclass: "",
       patron: "",
       bio: "",
       height: "",
@@ -44,7 +44,7 @@ class CharForm extends Component {
     firebase
       .firestore()
       .collection("characters")
-      .doc(`${character.id}/pic`)
+      .doc(`${this.state.id / pic.FieldValue}`)
       .delete()
       .then(response => {
         this.setState({
@@ -178,7 +178,7 @@ class CharForm extends Component {
   getRace() {
     const db = firebase.firestore();
     var raceRef = db.collection("race");
-    var allrace = raceRef
+    raceRef
       .get()
       .then(snapshot => {
         let racelist = [];
@@ -196,7 +196,7 @@ class CharForm extends Component {
   getCampaigns() {
     const db = firebase.firestore();
     var camRef = db.collection("campaigns");
-    var allcam = camRef
+    camRef
       .get()
       .then(snapshot => {
         let campaignslist = [];
@@ -214,7 +214,7 @@ class CharForm extends Component {
   getMembers() {
     const db = firebase.firestore();
     var memRef = db.collection("members");
-    var allmems = memRef
+    memRef
       .get()
       .then(snapshot => {
         let members = [];
@@ -232,7 +232,7 @@ class CharForm extends Component {
   getClass() {
     const db = firebase.firestore();
     var classRef = db.collection("class");
-    var allclass = classRef
+    classRef
       .get()
       .then(snapshot => {
         let classlist = [];
@@ -247,6 +247,7 @@ class CharForm extends Component {
         console.log("Error getting documents", err);
       });
   }
+
   componentDidMount() {
     this.getRace();
     this.getClass();
@@ -271,14 +272,14 @@ class CharForm extends Component {
   render() {
     let characterPlayer = this.state.members.map(info => {
       return (
-        <option key={info.id} value={info.id}>
+        <option key={info.id} value={info.name}>
           {info.name}
         </option>
       );
     });
     let characterCampaign = this.state.campaignslist.map(info => {
       return (
-        <option key={info.id} value={info.id}>
+        <option key={info.name} value={info.name}>
           {info.name}
         </option>
       );
@@ -293,19 +294,10 @@ class CharForm extends Component {
 
     let characterClass = this.state.classlist.map(info => {
       return (
-        <option key={info.id} value={info.id}>
+        <option key={info.id} value={info.name}>
           {info.name}
         </option>
       );
-    });
-    let subClass = this.state.classlist.map(info => {
-      if (info.name == this.state.charclass) {
-        return (
-          <option key={info.id} value={info.subclass}>
-            {info.name}
-          </option>
-        );
-      }
     });
     return (
       <form onSubmit={this.handleSubmit} className="char-form-wrapper">
@@ -381,15 +373,12 @@ class CharForm extends Component {
                 {characterRace}
               </select>
               <h3>Subrace</h3>
-              <select
+              <input
+                type="text"
                 name="subrace"
                 value={this.state.subrace}
                 onChange={this.handleChange}
-              >
-                <option id="1" value="-">
-                  -
-                </option>
-              </select>
+              />
             </div>
             <div className="row">
               <h3>Class</h3>
@@ -402,25 +391,12 @@ class CharForm extends Component {
                 {characterClass}
               </select>
               <h3>Subclass</h3>
-              <select
+              <input
+                type="text"
                 name="subclass"
                 value={this.state.subclass}
                 onChange={this.handleChange}
               />
-
-              <h3>Patron</h3>
-              <select
-                name="subclass"
-                value={this.state.patron}
-                onChange={this.handleChange}
-              >
-                <option value="Archfae">Archfae</option>
-                <option value="Celestial">Celestial</option>
-                <option value="Fiend">Fiend</option>
-                <option value="Great Old One">Great Old One</option>
-                <option value="Hexblade">Hexblade</option>
-                <option value="Undying">Undying</option>
-              </select>
             </div>
             <div className="bio">
               <textarea

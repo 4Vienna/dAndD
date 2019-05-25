@@ -1,17 +1,25 @@
-.rules{
-
-.description{
+.rules {
+  .description {
     @include float-box();
     text-align: center;
-}
-.body{
-    @include two-column();
-
-    .announcements{
-        @include float-box();
-    };
-    .episodes{
-        @include float-box();
+  }
+  .body {
+    @media screen and (min-width: $computer) {
+      @include two-column();
     }
-}
+    .announcements {
+      @include float-box();
+      width: 100vw;
+      @media screen and (min-width: $computer) {
+        width: 47vw;
+      }
+    }
+    .episodes {
+      @include float-box();
+      width: 100vw;
+      @media screen and (min-width: $computer) {
+        width: 47vw;
+      }
+    }
+  }
 }

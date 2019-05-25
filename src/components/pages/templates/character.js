@@ -24,7 +24,9 @@ class Character extends Component {
         console.log("Error getting documents", err);
       });
   }
-
+  componentDidMount() {
+    this.getCharacter();
+  }
   componentDidUpdate() {
     this.getCharacter();
   }

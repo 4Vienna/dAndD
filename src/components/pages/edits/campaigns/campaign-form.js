@@ -12,7 +12,7 @@ class CampaignForm extends Component {
     this.state = {
       name: "",
       id: "",
-      dm: "",
+      dm: "Eli",
       descripion: "",
       pic: "",
       members: []
@@ -25,7 +25,7 @@ class CampaignForm extends Component {
     firebase
       .firestore()
       .collection("characters")
-      .doc(`${character.id}/pic`)
+      .doc(`${campaign.id}/pic`)
       .delete()
       .then(response => {
         this.setState({
@@ -38,14 +38,16 @@ class CampaignForm extends Component {
   }
 
   componentDidUpdate() {
-    if (Object.keys(this.props.characterToEdit).length > 0) {
-      const { name, id, pic } = this.props.characterToEdit;
+    if (Object.keys(this.props.campaignToEdit).length > 0) {
+      const { name, id, pic } = this.props.campaignToEdit;
 
-      this.props.clearCharacterToEdit();
+      this.props.clearCampaignToEdit();
 
       this.setState({
         name: name || "",
         id: id || "",
+        dm: dm || "Eli",
+        description: description || "",
         pic: pic || ""
       });
     }
@@ -60,19 +62,23 @@ class CampaignForm extends Component {
     let character = {
       name: this.state.name,
       id: this.state.name,
-      pic: this.state.pic
+      dm: this.state.dm,
+      description: this.state.description,
+      pic: this.state.pic,
+      banner: this.state.banner
     };
     event.preventDefault();
     firebase
       .firestore()
-      .collection("characters")
+      .collection("campaigns")
       .doc(this.state.name)
-      .set(character, { merge: true });
-    this.props.clearCharacterToEdit();
+      .set(campaign, { merge: true });
+    this.props.clearCampaignToEdit();
     this.setState({
       name: "",
       id: "",
-
+      dm: "Eli",
+      descripion: "",
       pic: ""
     });
   }
@@ -132,13 +138,20 @@ class CampaignForm extends Component {
       <form onSubmit={this.handleSubmit} className="char-form-wrapper">
         <div className="form-content">
           <div className="left-column">
-            <h2>Basic Info</h2>
-            <div className="row">
+            <input
+              type="text"
+              name="name"
+              placeholder="Campaign Name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+            <div>
+              Campaign By
               <input
                 type="text"
-                name="name"
-                placeholder="Campaign Name"
-                value={this.state.name}
+                name="by"
+                placeholder="Campaign by"
+                value={this.state.by}
                 onChange={this.handleChange}
               />
             </div>
@@ -152,6 +165,15 @@ class CampaignForm extends Component {
               >
                 {dm}
               </select>
+            </div>
+            <div className="description">
+              <textarea
+                type="text"
+                name="description"
+                placeholder="Campaign Description"
+                value={this.state.description}
+                onChange={this.handleChange}
+              />
             </div>
             <div className="image-uploader">
               {this.state.pic ? (
@@ -168,7 +190,24 @@ class CampaignForm extends Component {
                   djsConfig={this.djsConfig()}
                   eventHandlers={this.handlePicDrop()}
                 >
-                  <div className="dz-message">Character Pic</div>
+                  <div className="dz-message">Campaign Pic</div>
+                </DropzoneComponent>
+              )}
+              {this.state.banner ? (
+                <div className="portfolio-manager-image-wrapper">
+                  <img src={this.state.banner} />
+                  <div className="image-removal-link">
+                    <a onClick={() => this.deleteImage("pic")}>Remove File</a>
+                  </div>
+                </div>
+              ) : (
+                <DropzoneComponent
+                  ref={this.pic}
+                  config={this.componentConfig()}
+                  djsConfig={this.djsConfig()}
+                  eventHandlers={this.handlePicDrop()}
+                >
+                  <div className="dz-message">Campaign Banner</div>
                 </DropzoneComponent>
               )}
             </div>

@@ -1,28 +1,30 @@
-.page{
-    @include one-column();
-    .body-top{
-        @include two-column();
-        height: calc(100% - 144px);
-    .picture{
-        background-size: cover;
-        background-position: center;
-        height: 597px;
-        margin: 10px;
+.page {
+  @include one-column();
+  .body-top {
+    @media screen and (min-width: $computer) {
+      @include two-column();
+      height: calc(100% - 144px);
     }
-    .bio{
-        @include float-box();
+    .picture {
+      background-size: cover;
+      background-position: center;
+      height: 597px;
+      margin: 10px;
     }
-    .characters-block{
-        @include float-box();
-        .characters-list{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-column-gap: 5px;
-            place-items: center;
-        }
+    .bio {
+      @include float-box();
     }
-    .campaigns{
-        @include float-box();
+    .characters-block {
+      @include float-box();
+      .characters-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 5px;
+        place-items: center;
+      }
     }
-}
+    .campaigns {
+      @include float-box();
+    }
+  }
 }

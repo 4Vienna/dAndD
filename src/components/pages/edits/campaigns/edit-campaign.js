@@ -44,8 +44,8 @@ export default class EditCampaigns extends Component {
           <CampaignForm
             handleNewFormSubmission={this.handleNewFormSubmission}
             handleEditFormSubmission={this.handleEditFormSubmission}
-            clearCharacterToEdit={this.clearCharacterToEdit}
-            characterToEdit={this.state.characterToEdit}
+            clearCampaignToEdit={this.clearCampaignToEdit}
+            campaignToEdit={this.state.campaignToEdit}
           />
         </div>
         <div className="characters-list">

@@ -1,4 +1,4 @@
-.nav-wapper{
+.nav-wapper {
   width: 160px;
   .button {
     color: $accentOne;
@@ -11,13 +11,13 @@
     @include float-box();
     background: $main-solid;
     width: 10em;
-    z-index: 100; 
+    z-index: 100;
     position: absolute;
     margin-top: 0px;
     a {
       color: $accentOne;
       transition: 0.5s ease-in-out;
-        &:hover {
+      &:hover {
         color: $accentTwo;
         text-decoration: none;
       }
@@ -26,10 +26,12 @@
       }
     }
   }
-  &:hover .nav {
-    display:flex;
+  @media screen and (min-width: $computer) {
+    &:hover .nav {
+      display: flex;
+    }
   }
-  &:hover .button{
+  &:hover .button {
     color: $accentTwo;
     text-decoration: none;
     cursor: pointer;

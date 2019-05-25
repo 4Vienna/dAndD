@@ -58,10 +58,11 @@ td {
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  flex-wrap: wrap;
 }
-.contact-container{
+.contact-container {
   width: 100vw;
-  .contact-info{
+  .contact-info {
     text-align: center;
   }
 }

@@ -41,7 +41,12 @@
   width: 100%;
   text-align: center;
   transition: 1s ease-in-out;
-  color: transparent;
+  @media screen and (max-width: $phone) {
+    color: $accentOne;
+  }
+  @media screen and (min-width: $computer) {
+    color: transparent;
+  }
   text-decoration: none;
   font-weight: 600;
   position: absolute;

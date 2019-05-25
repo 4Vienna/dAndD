@@ -45,7 +45,7 @@ const NavBar = props => {
             <FontAwesomeIcon icon="dice-d20" />
             Members
           </Link>
-          {props.loggedInStatus === "Logged_In" ? (
+          {props.loggedInStatus === "LOGGED_IN" ? (
             dynamicLink("/campaigns-edit", "Campaign", "dragon")
           ) : (
             <Link to="/campaigns">

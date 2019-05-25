@@ -1,7 +1,10 @@
 .announcements-wrapper {
   @include float-box();
   height: 20em;
-  min-width: 400px;
+  min-width: 40vw;
+  @media screen and (max-width: $phone) {
+    width: 100vw;
+  }
 }
 .carasol {
   @include float-box();
@@ -16,14 +19,27 @@
     flex-wrap: wrap;
   }
 }
-.calendar-frame{
-  iframe{
-    height: 275px;
-    width: 800px;
-    border: 0;
-    .mv-dayname{
-      background-color: black;
-      color: white;
+.calendar {
+  @include float-box();
+  .calendar-frame {
+    @media screen and (min-width: $computer) {
+      iframe {
+        min-height: 250px;
+        min-width: 50vw;
+        border: 0;
+        .mv-dayname {
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: $phone) {
+    width: 90vw;
+    iframe {
+      width: 85vw;
+      min-height: 250px;
+      border: 0;
     }
   }
 }

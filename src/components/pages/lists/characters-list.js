@@ -16,6 +16,7 @@ class CharactersList extends Component {
   }
   renderCharacters(props) {
     let characters = this.state.characters;
+    let num = window.innerWidth / 110;
     const characterRecords = characters.map(icon => {
       return <Small key={icon.id} icon={icon} />;
     });
@@ -23,9 +24,8 @@ class CharactersList extends Component {
       const properties = {
         infinite: true,
         dots: true,
-        centerMode: true,
         arrows: true,
-        slidesToShow: 10,
+        slidesToShow: Math.floor(num),
         slidesToScroll: 1
       };
       return <Slider {...properties}>{characterRecords}</Slider>;
@@ -79,15 +79,15 @@ class CharactersList extends Component {
             />
             <div className="info">
               <div className="name">{icon.name}</div>
-            </div>
-            <div className="delete">
-              <a
-                onClick={() => {
-                  this.props.handleDeleteClick(icon);
-                }}
-              >
-                <FontAwesomeIcon icon="trash" />
-              </a>
+              <div className="delete">
+                <a
+                  onClick={() => {
+                    this.props.handleDeleteClick(icon);
+                  }}
+                >
+                  <FontAwesomeIcon icon="trash" />
+                </a>
+              </div>
             </div>
           </div>
         );

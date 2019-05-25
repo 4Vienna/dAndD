@@ -30,4 +30,10 @@
     height: 200px;
     width: 200px;
   }
+  .image-removal-link {
+    &:hover {
+      color: red;
+      cursor: pointer;
+    }
+  }
 }

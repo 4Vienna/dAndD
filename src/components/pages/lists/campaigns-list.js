@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import firebase from "../../config/fb-config";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Medium from "../icons/medium";
 
@@ -36,7 +37,7 @@ class CampaignsList extends Component {
       });
       return iconList;
     } else if (this.props.type == "edit") {
-      const editList = campaigns.map(icon => {
+      const editList = this.state.campaigns.map(icon => {
         return (
           <div
             className="icons"

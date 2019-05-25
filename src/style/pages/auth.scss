@@ -1,10 +1,19 @@
 .auth-page-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   height: calc(100vh - 84px);
-
-  .left-column {
-    background-size: cover;
+  @media screen and (min-width: $computer) {
+    grid-template-columns: 1fr 1fr;
+    .left-column {
+      background-size: cover;
+      height: calc(100vh - 84px);
+      width: 45vw;
+    }
+  }
+  @media screen and (max-width: $phone) {
+    .left-column {
+      height: 0px;
+      width: 0px;
+    }
   }
 
   .right-column {
