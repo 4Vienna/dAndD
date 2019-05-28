@@ -9,7 +9,6 @@ class CampaignsList extends Component {
     super(props);
 
     this.state = {
-      isLoading: true,
       campaigns: []
     };
   }
@@ -82,8 +81,7 @@ class CampaignsList extends Component {
           campaigns.push({ ...doc.data() });
         });
         this.setState({
-          campaigns,
-          isLoading: false
+          campaigns
         });
       })
       .catch(err => {
@@ -99,11 +97,7 @@ class CampaignsList extends Component {
   }
 
   render() {
-    return this.state.loading ? (
-      <FontAwesomeIcon icon="spinner" spin />
-    ) : (
-      this.renderCampaigns()
-    );
+    return this.renderCampaigns();
   }
 }
 export default CampaignsList;

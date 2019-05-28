@@ -11,8 +11,7 @@ class CharactersList extends Component {
     super(props);
     this.state = {
       characters: [],
-      list: [],
-      isLoading: true
+      list: []
     };
   }
   renderCharacters(props) {
@@ -107,8 +106,7 @@ class CharactersList extends Component {
           characters.push({ ...doc.data() });
         });
         this.setState({
-          characters,
-          isLoading: false
+          characters
         });
       })
       .catch(err => {
@@ -123,11 +121,7 @@ class CharactersList extends Component {
   }
 
   render() {
-    return this.state.loading ? (
-      <FontAwesomeIcon icon="spinner" spin />
-    ) : (
-      this.renderCharacters()
-    );
+    return this.renderCharacters();
   }
 }
 export default CharactersList;

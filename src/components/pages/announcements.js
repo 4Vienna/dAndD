@@ -9,8 +9,7 @@ class Announcements extends Component {
     this.state = {
       newannounce: "",
       type: "Rules",
-      announcements: [],
-      isLoading: true
+      announcements: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -90,8 +89,7 @@ class Announcements extends Component {
           announcements.push({ ...doc.data() });
         });
         this.setState({
-          announcements,
-          isLoading: false
+          announcements
         });
       })
       .catch(err => {
@@ -109,11 +107,7 @@ class Announcements extends Component {
   render() {
     return (
       <div>
-        {this.state.loading ? (
-          <FontAwesomeIcon icon="spinner" spin />
-        ) : (
-          this.renderAnnouncements()
-        )}
+        {this.renderAnnouncements()}
         {this.props.loggedInStatus === "LOGGED_IN" ? (
           <div>
             <input
