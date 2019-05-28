@@ -32,7 +32,7 @@ export default class EditCampaigns extends Component {
   handleDeleteClick(campaign) {
     firebase
       .firestore()
-      .collection("campaign")
+      .collection("campaigns")
       .doc(campaign.id)
       .delete();
   }

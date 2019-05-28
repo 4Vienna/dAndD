@@ -88,7 +88,16 @@ export default class App extends Component {
             />
             <div className="display">
               <Switch>
-                <Route exact path="/" component={Home} />
+                <Route
+                  exact
+                  path="/"
+                  render={props => (
+                    <Home
+                      {...props}
+                      loggedInStatus={this.state.loggedInStatus}
+                    />
+                  )}
+                />
                 <Route path="/characters" component={CharactersPage} />
                 <Route path="/character/:slug" component={Character} />
                 <Route path="/campaigns" component={Campaigns} />

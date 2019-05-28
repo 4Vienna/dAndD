@@ -1,0 +1,16 @@
+.trash-icon {
+  color: $accentOne;
+  transition: 1s ease-in-out;
+  &:hover {
+    color: red;
+  }
+}
+.new-announcement-button {
+  font-size: 25px;
+  margin: 5px;
+  color: $accentOne;
+  transition: 1s ease-in-out;
+  &:hover {
+    color: $accentTwo;
+  }
+}

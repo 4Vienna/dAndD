@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,6 +16,19 @@ const NavBar = props => {
       </div>
     );
   };
+  const [active, setActive] = useState("");
+
+  const handleClick = () => {
+    if (window.innerWidth < 1000) {
+      if (active === "none") {
+        setActive("flex");
+      } else {
+        setActive("none");
+      }
+    } else {
+      setActive("");
+    }
+  };
 
   const handleSignOut = () => {
     firebase
@@ -31,12 +44,12 @@ const NavBar = props => {
   };
   return (
     <div className="nav-wapper">
-      <h3 className="button">
+      <h3 className="button" onClick={() => handleClick()}>
         <FontAwesomeIcon icon="dungeon" />
         Menu
       </h3>
       <div className="bar">
-        <div className="nav">
+        <div className="nav" style={{ display: active }}>
           <Link to="/">
             <FontAwesomeIcon icon="home" />
             Home

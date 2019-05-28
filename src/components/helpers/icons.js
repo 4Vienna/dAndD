@@ -19,7 +19,8 @@ import {
   faTheaterMasks,
   faHome,
   faSignOutAlt,
-  faTrash
+  faTrash,
+  faPlusCircle
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -45,7 +46,8 @@ const Icons = () => {
     faTheaterMasks,
     faHome,
     faSignOutAlt,
-    faTrash
+    faTrash,
+    faPlusCircle
   );
 };
 

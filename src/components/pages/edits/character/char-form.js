@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 import firebase from "../../../config/fb-config";
-import DropzoneComponent from "react-dropzone-component";
-
-import "../../../../../node_modules/react-dropzone-component/styles/filepicker.css";
-import "../../../../../node_modules/dropzone/dist/min/dropzone.min.css";
 
 class CharForm extends Component {
   constructor(props) {
@@ -108,11 +104,6 @@ class CharForm extends Component {
           "https://lh3.googleusercontent.com/m8xVtGYOTorBiE2G40kR4sceR1vFoOp5KyJPW-05e0Xxh27t4p38PPiA3qhg6ZdOzNeMUvM6toVEjMIjjkFpnX5SYemUlHXl5DO9JDN5Qre8kV3bYCBiAW8BNE5b3-LrXRG74Au-VjEbDMGUWIS5wCaG8CLuQEgviI-CoTX8m_jUtUyclmWdgiwjpB3tBSfBkuYb7mWygdSW9-M91qiVhj5H6PrEvB7NSf0KWDZzpA3BvWBU-8Qyha1sbELm_d3rKIC-kj1VWpvKQX8PGOGshL0GBIlEO_lL2kN0O2ALtOi-cabB2pe9TKkxfd_gTYs8A7-YDt98tNSqf-AO-TI165Gq_wRqZOGpbZ_6BQrh7BpuOd0izWITxx3Kh9njYbH6zcGMhGUqC7Zf2JIhz1dRsAdoYTYj5UzaaPBgqoEsy49M3jAza82aySrx_srPnefzjzwqIJdxJQvUmoS7LUSPlr3GSgc6AiKNehNjzVIFWWRAT_TmAyH1zWgvpiHWZKuAdd17WHohdrybvIbcV09qWOuedIyY98RzJM_hM9AMSwbGxb9bH8vJM07eJS75L2XVfbh3WAdjOmlECq09n0eGvr2JtlqbpvuVR4-Ais8hK0qHyAQ1jub41jWMm4WJRS7iBmdBPE7ihWoXnh_QnlM2GpjUqlTRH5bv5ctXtos9zX2mLSn79KzIHzQtWuYxoEbMKMLGxSvCWu6qBEfdupAvBp0=s225-no"
       });
     }
-  }
-  handlePicDrop() {
-    return {
-      addedfile: file => this.setState({ pic: file })
-    };
   }
 
   handleSubmit(event) {
@@ -253,20 +244,6 @@ class CharForm extends Component {
     this.getClass();
     this.getCampaigns();
     this.getMembers();
-  }
-  componentConfig() {
-    return {
-      iconFiletypes: [".jpg", ".png"],
-      showFiletypeIcon: true,
-      postUrl: "https://httpbin.org/post"
-    };
-  }
-
-  djsConfig() {
-    return {
-      addRemoveLinks: true,
-      maxFiles: 1
-    };
   }
 
   render() {
@@ -486,14 +463,13 @@ class CharForm extends Component {
                   </div>
                 </div>
               ) : (
-                <DropzoneComponent
-                  ref={this.pic}
-                  config={this.componentConfig()}
-                  djsConfig={this.djsConfig()}
-                  eventHandlers={this.handlePicDrop()}
-                >
-                  <div className="dz-message">Character Pic</div>
-                </DropzoneComponent>
+                <input
+                  type="url"
+                  name="pic"
+                  placeholder="Icon URL"
+                  value={this.state.pic}
+                  onChange={this.handleChange}
+                />
               )}
             </div>
           </div>

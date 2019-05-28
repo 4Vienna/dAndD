@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 import firebase from "../../../config/fb-config";
-import DropzoneComponent from "react-dropzone-component";
-
-import "../../../../../node_modules/react-dropzone-component/styles/filepicker.css";
-import "../../../../../node_modules/dropzone/dist/min/dropzone.min.css";
 
 class CampaignForm extends Component {
   constructor(props) {
@@ -27,8 +23,8 @@ class CampaignForm extends Component {
   deleteImage(pic) {
     firebase
       .firestore()
-      .collection("characters")
-      .doc(`${campaign.id}/pic`)
+      .collection("campaigns")
+      .doc(`${this.state.id}/pic`)
       .delete()
       .then(response => {
         this.setState({
@@ -67,11 +63,6 @@ class CampaignForm extends Component {
       });
     }
   }
-  handlePicDrop() {
-    return {
-      addedfile: file => this.setState({ pic: file })
-    };
-  }
 
   handleSubmit(event) {
     let campaign = {
@@ -86,7 +77,7 @@ class CampaignForm extends Component {
     firebase
       .firestore()
       .collection("campaigns")
-      .doc(this.state.id)
+      .doc(campaign.id)
       .set(campaign, { merge: true });
     this.props.clearCampaignToEdit();
     this.setState({
@@ -127,20 +118,6 @@ class CampaignForm extends Component {
 
   componentDidMount() {
     this.getMembers();
-  }
-  componentConfig() {
-    return {
-      iconFiletypes: [".jpg", ".png"],
-      showFiletypeIcon: true,
-      postUrl: "https://httpbin.org/post"
-    };
-  }
-
-  djsConfig() {
-    return {
-      addRemoveLinks: true,
-      maxFiles: 1
-    };
   }
 
   render() {
@@ -208,41 +185,49 @@ class CampaignForm extends Component {
             </div>
           </div>
           <div className="right-column">
-            <div className="image-uploader">
-              {this.state.pic ? (
-                <div className="portfolio-manager-image-wrapper">
-                  <img src={this.state.pic} />
-                  <div className="image-removal-link">
-                    <a onClick={() => this.deleteImage("pic")}>Remove File</a>
+            <div className="row">
+              <div className="image-uploader">
+                {this.state.pic ? (
+                  <div className="image-wrapper">
+                    <img src={this.state.pic} />
+                    <div className="image-removal-link">
+                      <a onClick={() => this.deleteImage("pic")}>Remove File</a>
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <DropzoneComponent
-                  ref={this.pic}
-                  config={this.componentConfig()}
-                  djsConfig={this.djsConfig()}
-                  eventHandlers={this.handlePicDrop()}
-                >
-                  <div className="dz-message">Campaign Pic</div>
-                </DropzoneComponent>
-              )}
-              {this.state.banner ? (
-                <div className="portfolio-manager-image-wrapper">
-                  <img src={this.state.banner} />
-                  <div className="image-removal-link">
-                    <a onClick={() => this.deleteImage("pic")}>Remove File</a>
+                ) : (
+                  <div>
+                    <h3>Icon Image</h3>
+                    <input
+                      type="url"
+                      name="pic"
+                      placeholder="Icon URL"
+                      value={this.state.pic}
+                      onChange={this.handleChange}
+                    />
                   </div>
-                </div>
-              ) : (
-                <DropzoneComponent
-                  ref={this.pic}
-                  config={this.componentConfig()}
-                  djsConfig={this.djsConfig()}
-                  eventHandlers={this.handlePicDrop()}
-                >
-                  <div className="dz-message">Campaign Banner</div>
-                </DropzoneComponent>
-              )}
+                )}
+              </div>
+              <div className="image-uploader">
+                {this.state.banner ? (
+                  <div className="image-wrapper">
+                    <img src={this.state.banner} />
+                    <div className="image-removal-link">
+                      <a onClick={() => this.deleteImage("pic")}>Remove File</a>
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    <h3>Banner Image</h3>
+                    <input
+                      type="url"
+                      name="banner"
+                      placeholder="banner URL"
+                      value={this.state.banner}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
