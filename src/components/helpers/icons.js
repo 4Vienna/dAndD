@@ -7,12 +7,8 @@ import {
   faDungeon,
   faDragon,
   faDiceD20,
-  faDiceD6,
   faHatWizard,
   faSkullCrossbones,
-  faRing,
-  faMale,
-  faFemale,
   faScroll,
   faCalendarAlt,
   faBook,
@@ -20,7 +16,8 @@ import {
   faHome,
   faSignOutAlt,
   faTrash,
-  faPlusCircle
+  faPlusCircle,
+  faSpinner
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -34,12 +31,8 @@ const Icons = () => {
     faDungeon,
     faDragon,
     faDiceD20,
-    faDiceD6,
     faHatWizard,
     faSkullCrossbones,
-    faRing,
-    faMale,
-    faFemale,
     faScroll,
     faCalendarAlt,
     faBook,
@@ -47,7 +40,8 @@ const Icons = () => {
     faHome,
     faSignOutAlt,
     faTrash,
-    faPlusCircle
+    faPlusCircle,
+    faSpinner
   );
 };
 

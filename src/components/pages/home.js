@@ -21,7 +21,10 @@ export default class Home extends Component {
         <div className="body">
           <div className="announcements-wrapper">
             <h2>Announcements:</h2>
-            <Announcements loggedInStatus={this.props.loggedInStatus} />
+            <Announcements
+              loggedInStatus={this.props.loggedInStatus}
+              type="all"
+            />
           </div>
           <div className="calendar">
             <h2>Calendar</h2>

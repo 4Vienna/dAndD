@@ -104,7 +104,16 @@ export default class App extends Component {
                 <Route path="/campaign/:slug" component={Campaign} />
                 <Route path="/members" component={Members} />
                 <Route path="/member/:slug" component={Member} />
-                <Route path="/rules" component={Rules} />
+                <Route
+                  exact
+                  path="/rules"
+                  render={props => (
+                    <Rules
+                      {...props}
+                      loggedInStatus={this.state.loggedInStatus}
+                    />
+                  )}
+                />
                 {this.state.loggedInStatus === "LOGGED_IN"
                   ? this.authorizedPages()
                   : null}

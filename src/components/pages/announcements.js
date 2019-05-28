@@ -8,20 +8,63 @@ class Announcements extends Component {
     super(props);
     this.state = {
       newannounce: "",
-      announcements: []
+      type: "Rules",
+      announcements: [],
+      isLoading: true
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderAnnouncements = this.renderAnnouncements.bind(this);
   }
+  renderAnnouncements(props) {
+    let announcements = this.state.announcements;
+    if (this.props.type == "all") {
+      return announcements.map(info => {
+        return (
+          <li key={info.id}>
+            {info.content}{" "}
+            {this.props.loggedInStatus === "LOGGED_IN" ? (
+              <FontAwesomeIcon
+                onClick={() => this.handleDeleteClick(info)}
+                className="trash-icon"
+                icon="trash"
+              />
+            ) : null}
+          </li>
+        );
+      });
+    } else if (this.props.type == "rules") {
+      return announcements.map(info => {
+        if (info.type == "Rules") {
+          return (
+            <li key={info.id}>
+              {info.content}{" "}
+              {this.props.loggedInStatus === "LOGGED_IN" ? (
+                <FontAwesomeIcon
+                  onClick={() => this.handleDeleteClick(info)}
+                  className="trash-icon"
+                  icon="trash"
+                />
+              ) : null}
+            </li>
+          );
+        }
+      });
+    }
+    null;
+  }
+
   handleSubmit() {
     let announcement = this.state.newannounce;
+    let type = this.state.type;
     firebase
       .firestore()
       .collection("announcements")
       .doc(announcement)
-      .set({ content: announcement, id: announcement });
+      .set({ content: announcement, id: announcement, type: type });
     this.setState({
-      newannounce: ""
+      newannounce: "",
+      type: "Rules"
     });
   }
   handleChange(event) {
@@ -47,7 +90,8 @@ class Announcements extends Component {
           announcements.push({ ...doc.data() });
         });
         this.setState({
-          announcements
+          announcements,
+          isLoading: false
         });
       })
       .catch(err => {
@@ -61,24 +105,15 @@ class Announcements extends Component {
   componentDidUpdate() {
     this.getAnnouncements();
   }
+
   render() {
-    const announce = this.state.announcements.map(info => {
-      return (
-        <li key={info.id}>
-          {info.content}{" "}
-          {this.props.loggedInStatus === "LOGGED_IN" ? (
-            <FontAwesomeIcon
-              onClick={() => this.handleDeleteClick(info)}
-              className="trash-icon"
-              icon="trash"
-            />
-          ) : null}
-        </li>
-      );
-    });
     return (
-      <div className="announcement">
-        {announce}
+      <div>
+        {this.state.loading ? (
+          <FontAwesomeIcon icon="spinner" spin />
+        ) : (
+          this.renderAnnouncements()
+        )}
         {this.props.loggedInStatus === "LOGGED_IN" ? (
           <div>
             <input
@@ -88,6 +123,11 @@ class Announcements extends Component {
               value={this.state.newannounce}
               onChange={this.handleChange}
             />
+            <select name="type" onChange={this.handleChange}>
+              <option value="Rules">Rules</option>
+              <option value="Camppaign">Campaign</option>
+            </select>
+
             <FontAwesomeIcon
               onClick={() => this.handleSubmit()}
               className="new-announcement-button"
