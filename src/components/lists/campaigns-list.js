@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import firebase from "../../config/fb-config";
+import firebase from "../config/fb-config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Medium from "../icons/medium";

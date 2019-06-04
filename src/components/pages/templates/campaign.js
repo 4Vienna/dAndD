@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import firebase from "../../config/fb-config";
 
-import CharactersList from "../lists/characters-list";
+import CharactersList from "../../lists/characters-list";
 
 export default class Campaign extends Component {
   constructor(props) {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import firebase from "../../../config/fb-config";
 
-import CampaignsList from "../../lists/campaigns-list";
+import CampaignsList from "../../../lists/campaigns-list";
 import CampaignForm from "./campaign-form";
 
 export default class EditCampaigns extends Component {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import firebase from "../../../config/fb-config";
 
-import CharactersList from "../../lists/characters-list";
+import CharactersList from "../../../lists/characters-list";
 import CharForm from "./char-form";
 
 export default class EditCharacters extends Component {

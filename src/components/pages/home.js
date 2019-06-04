@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import Announcements from "./announcements";
-import CharactersList from "./lists/characters-list";
-import CampaignsList from "./lists/campaigns-list";
+import CharactersList from "../lists/characters-list";
+import CampaignsList from "../lists/campaigns-list";
 
 export default class Home extends Component {
   constructor(props) {
