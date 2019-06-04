@@ -6,23 +6,23 @@ module.exports = {
     app: ["./src/bootstrap.js"],
     vendor: "./src/vendor.js"
   },
-  resolve: {
-    extensions: [".js", ".scss"],
-    node: {
-      console: "empty",
-      fs: "empty",
-      net: "empty",
-      tls: "empty"
-    },
+  // resolve: {
+  //   // extensions: [".js", ".scss"]
+  //   // node: {
+  //   //   console: "empty",
+  //   //   fs: "empty",
+  //   //   net: "empty",
+  //   //   tls: "empty"
+  //   // }
 
-    modules: ["node_modules"],
-    node: {
-      console: true,
-      fs: "empty",
-      net: "empty",
-      tls: "empty"
-    }
-  },
+  //   // modules: ["node_modules"],
+  //   // node: {
+  //   //   console: true,
+  //   //   fs: "empty",
+  //   //   net: "empty",
+  //   //   tls: "empty"
+  //   // }
+  // }
 
   module: {
     rules: [
