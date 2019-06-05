@@ -68,6 +68,7 @@ class CampaignForm extends Component {
     let campaign = {
       name: this.state.name,
       id: this.state.name.replace(/\s+/g, "-"),
+      by: this.state.by,
       dm: this.state.dm,
       description: this.state.description,
       pic: this.state.pic,

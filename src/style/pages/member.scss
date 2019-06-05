@@ -3,6 +3,7 @@
   .body-top {
     @media screen and (min-width: $computer) {
       @include two-column();
+      width: calc(50vw - 20px);
       height: calc(100% - 144px);
     }
     .picture {
@@ -10,21 +11,25 @@
       background-position: center;
       height: 597px;
       margin: 10px;
-    }
-    .bio {
-      @include float-box();
-    }
-    .characters-block {
-      @include float-box();
-      .characters-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-column-gap: 5px;
-        place-items: center;
+      @media screen and (min-width: $computer) {
+        width: calc(50vw - 20px);
       }
     }
-    .campaigns {
-      @include float-box();
+    .right-column {
+      @media screen and (min-width: $computer) {
+        width: calc(50vw - 35px);
+      }
+      .bio {
+        @include float-box();
+      }
+      .characters-list {
+        @media screen and (min-width: $computer) {
+          width: calc(50vw - 55px);
+        }
+      }
+      .campaigns {
+        @include float-box();
+      }
     }
   }
 }

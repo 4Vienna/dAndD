@@ -45,7 +45,7 @@ export default class Campaign extends Component {
           <div className="summary">
             <h2>Description</h2>
             <div className="description">{this.state.campaign.description}</div>
-            <div className="dm">DM:</div>
+            <div className="dm">DM: {this.state.campaign.dm}</div>
             <div className="created-by">By: {this.state.campaign.by}</div>
           </div>
           <div className="characters-list">

@@ -16,12 +16,12 @@ class CharactersList extends Component {
   }
   renderCharacters(props) {
     let characters = this.state.characters;
-    let width = () => {
-      let num = window.innerWidth / 110;
-      if (num < this.state.characters.length) {
-        return Math.floor(num);
+    let num = () => {
+      let wid = window.innerWidth / 110;
+      if (wid < characters.length) {
+        return Math.floor(wid);
       } else {
-        return this.state.characters.length;
+        return characters.length;
       }
     };
     const characterRecords = characters.map(icon => {
@@ -32,7 +32,7 @@ class CharactersList extends Component {
         infinite: true,
         dots: true,
         arrows: true,
-        slidesToShow: width(),
+        slidesToShow: num(),
         slidesToScroll: 1
       };
       return <Slider {...properties}>{characterRecords}</Slider>;
@@ -89,7 +89,7 @@ class CharactersList extends Component {
               <div className="delete">
                 <a
                   onClick={() => {
-                    this.props.handleDeleteClick(icon), this.getCharacters();
+                    this.props.handleDeleteClick(icon);
                   }}
                 >
                   <FontAwesomeIcon icon="trash" />
@@ -121,6 +121,9 @@ class CharactersList extends Component {
       });
   }
   componentDidMount() {
+    this.getCharacters();
+  }
+  componentDidUpdate() {
     this.getCharacters();
   }
 
