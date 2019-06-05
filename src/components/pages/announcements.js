@@ -15,6 +15,26 @@ class Announcements extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderAnnouncements = this.renderAnnouncements.bind(this);
   }
+
+  getAnnouncements() {
+    const db = firebase.firestore();
+    var announceRef = db.collection("announcements");
+    var allannounce = announceRef
+      .get()
+      .then(snapshot => {
+        let announcements = [];
+        snapshot.forEach(doc => {
+          announcements.push({ ...doc.data() });
+        });
+        this.setState({
+          announcements
+        });
+      })
+      .catch(err => {
+        console.log("Error getting documents", err);
+      });
+  }
+
   renderAnnouncements(props) {
     let announcements = this.state.announcements;
     if (this.props.type == "all") {
@@ -65,6 +85,7 @@ class Announcements extends Component {
       newannounce: "",
       type: "Rules"
     });
+    this.getAnnouncements();
   }
   handleChange(event) {
     this.setState({
@@ -77,30 +98,10 @@ class Announcements extends Component {
       .collection("announcements")
       .doc(info.id)
       .delete();
-  }
-  getAnnouncements() {
-    const db = firebase.firestore();
-    var announceRef = db.collection("announcements");
-    var allannounce = announceRef
-      .get()
-      .then(snapshot => {
-        let announcements = [];
-        snapshot.forEach(doc => {
-          announcements.push({ ...doc.data() });
-        });
-        this.setState({
-          announcements
-        });
-      })
-      .catch(err => {
-        console.log("Error getting documents", err);
-      });
+    this.getAnnouncements();
   }
 
   componentDidMount() {
-    this.getAnnouncements();
-  }
-  componentDidUpdate() {
     this.getAnnouncements();
   }
 
@@ -117,7 +118,11 @@ class Announcements extends Component {
               value={this.state.newannounce}
               onChange={this.handleChange}
             />
-            <select name="type" onChange={this.handleChange}>
+            <select
+              className="announcement-type-select"
+              name="type"
+              onChange={this.handleChange}
+            >
               <option value="Rules">Rules</option>
               <option value="Camppaign">Campaign</option>
             </select>

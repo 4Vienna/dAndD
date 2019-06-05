@@ -1,11 +1,14 @@
-.list{
-    .character{
-        height: 100px;
-        width: 100px;
-        }
-        .slick-list{
-            max-height: 150px;
-        }
+.list {
+  .character {
+    height: 100px;
+    width: 100px;
+  }
+  .slick-list {
+    max-height: 150px;
+  }
 }
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
+slider {
+  height: 120px;
+}

@@ -1,18 +1,18 @@
 .icons {
-  .image{
+  .image {
     @include icon();
     height: 100px;
     width: 100px;
+    background-repeat: no-repeat;
   }
   .info {
     @include link();
     font-size: 1.25em;
-    filter:brightness(100%);
+    filter: brightness(100%);
     width: 100px;
   }
-  &:hover .info{
+  &:hover .info {
     color: $accentTwo;
     text-shadow: 2px 2px 8px black;
   }
 }
-

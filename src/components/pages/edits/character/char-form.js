@@ -14,9 +14,9 @@ class CharForm extends Component {
       campaign: "Empires Fall",
       player: "Eli",
       race: "Aarakcra",
-      subrace: "",
+      subrace: "-",
       charclass: "Barbarian",
-      subclass: "",
+      subclass: "Path of the Berserker",
       patron: "",
       bio: "",
       height: "",
@@ -146,7 +146,7 @@ class CharForm extends Component {
       campaign: "Empires Fall",
       player: "Eli",
       race: "Aarakcra",
-      subrace: "",
+      subrace: "-",
       charclass: "Barbarian",
       subclass: "Path of the Berserker",
       patron: "",
@@ -263,10 +263,21 @@ class CharForm extends Component {
     });
     let characterRace = this.state.racelist.map(info => {
       return (
-        <option key={info.id} value={info.id}>
+        <option key={info.id} value={info.name}>
           {info.name}
         </option>
       );
+    });
+    let subRace = this.state.racelist.map(info => {
+      if (this.state.race == info.name) {
+        return info.subrace.map(i => {
+          return (
+            <option key={i} value={i}>
+              {i}
+            </option>
+          );
+        });
+      }
     });
 
     let characterClass = this.state.classlist.map(info => {
@@ -276,6 +287,18 @@ class CharForm extends Component {
         </option>
       );
     });
+    let subClass = this.state.classlist.map(info => {
+      if (this.state.charclass == info.name) {
+        return info.subclass.map(i => {
+          return (
+            <option key={i} value={i}>
+              {i}
+            </option>
+          );
+        });
+      }
+    });
+
     return (
       <form onSubmit={this.handleSubmit} className="form-wrapper">
         <div className="form-content">
@@ -350,12 +373,14 @@ class CharForm extends Component {
                 {characterRace}
               </select>
               <h3>Subrace</h3>
-              <input
+              <select
                 type="text"
                 name="subrace"
                 value={this.state.subrace}
                 onChange={this.handleChange}
-              />
+              >
+                {subRace}
+              </select>
             </div>
             <div className="row">
               <h3>Class</h3>
@@ -368,12 +393,14 @@ class CharForm extends Component {
                 {characterClass}
               </select>
               <h3>Subclass</h3>
-              <input
+              <select
                 type="text"
                 name="subclass"
                 value={this.state.subclass}
                 onChange={this.handleChange}
-              />
+              >
+                {subClass}
+              </select>
             </div>
             <div className="bio">
               <textarea

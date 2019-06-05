@@ -42,8 +42,6 @@ export default class EditCharacters extends Component {
       <div>
         <div className="edit-form">
           <CharForm
-            handleNewFormSubmission={this.handleNewFormSubmission}
-            handleEditFormSubmission={this.handleEditFormSubmission}
             clearCharacterToEdit={this.clearCharacterToEdit}
             characterToEdit={this.state.characterToEdit}
           />

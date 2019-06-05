@@ -43,7 +43,7 @@ class CampaignsList extends Component {
             className="medium-icons"
             key={icon.id}
             onClick={() => {
-              this.props.handleEditClick(icon);
+              this.props.handleEditClick(icon), this.getCampaigns();
             }}
           >
             <div
@@ -90,9 +90,6 @@ class CampaignsList extends Component {
   }
 
   componentDidMount() {
-    this.getCampaigns();
-  }
-  componentDidUpdate() {
     this.getCampaigns();
   }
 
