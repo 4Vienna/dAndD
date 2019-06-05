@@ -54,9 +54,11 @@ export default class App extends Component {
 
   checkLoggedInStatus() {
     firebase.auth().onAuthStateChanged(user => {
-      this.setState({
-        loggedInStatus: "LOGGED_IN"
-      });
+      if (user) {
+        this.setState({
+          loggedInStatus: "LOGGED_IN"
+        });
+      }
     });
   }
   componentDidMount() {

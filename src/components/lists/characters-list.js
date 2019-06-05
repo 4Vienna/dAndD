@@ -10,6 +10,7 @@ class CharactersList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      active: false,
       characters: [],
       list: []
     };
@@ -105,7 +106,7 @@ class CharactersList extends Component {
   getCharacters() {
     const db = firebase.firestore();
     var charactersRef = db.collection("characters");
-    var allcharacters = charactersRef
+    charactersRef
       .get()
       .then(snapshot => {
         let characters = [];
