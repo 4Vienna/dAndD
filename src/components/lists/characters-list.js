@@ -11,18 +11,32 @@ class CharactersList extends Component {
     super(props);
     this.state = {
       characters: [],
-      number: 1
+      width: 4
     };
 
     this.renderCharacters = this.renderCharacters.bind(this);
     this.getCharacters = this.getCharacters.bind(this);
-    this.getWidth = this.getWidth.bind(this);
+    this.updateWidth = this.updateWidth.bind(this);
   }
+
+  updateWidth() {
+    if (window.innerWidth / 110 < this.state.characters.length) {
+      this.setState({
+        width: Math.floor(window.innerWidth / 110)
+      });
+    } else {
+      this.setState({
+        width: this.state.characters.length
+      });
+    }
+  }
+
   renderCharacters(props) {
     let characters = this.state.characters;
-    let getNum = () => {
-      if (this.state.number < characters.length) {
-        return Math.floor(this.state.number);
+    let num = () => {
+      let wid = this.state.number;
+      if (wid < characters.length) {
+        return Math.floor(wid);
       } else {
         return characters.length;
       }
@@ -35,7 +49,7 @@ class CharactersList extends Component {
         infinite: true,
         dots: true,
         arrows: true,
-        slidesToShow: getNum(),
+        slidesToShow: this.state.width,
         slidesToScroll: 1
       };
       return <Slider {...properties}>{characterRecords}</Slider>;
@@ -118,6 +132,7 @@ class CharactersList extends Component {
         this.setState({
           characters
         });
+        this.updateWidth();
         this.props.handleRefresh;
       })
       .catch(err => {
@@ -125,21 +140,17 @@ class CharactersList extends Component {
       });
   }
 
-  getWidth() {
-    this.setState({
-      number: window.innerWidth / 110
-    });
-  }
-
   componentDidMount() {
     this.getCharacters();
+    window.addEventListener("resize", this.updateWidth);
   }
   componentDidUpdate() {
     if (this.props.refresh == true) {
       this.getCharacters();
-    } else if (this.state.number !== window.innerWidth / 110) {
-      this.getWidth();
     }
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWidth);
   }
 
   render() {
