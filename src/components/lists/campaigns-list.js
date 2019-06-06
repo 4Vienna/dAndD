@@ -57,7 +57,7 @@ class CampaignsList extends Component {
               <div className="delete">
                 <a
                   onClick={() => {
-                    this.props.handleDeleteClick(icon);
+                    this.props.handleDeleteClick(icon), this.getCampaigns();
                   }}
                 >
                   <FontAwesomeIcon icon="trash" />
@@ -83,6 +83,7 @@ class CampaignsList extends Component {
         this.setState({
           campaigns
         });
+        this.props.handleRefresh;
       })
       .catch(err => {
         console.log("Error getting documents", err);
@@ -93,7 +94,9 @@ class CampaignsList extends Component {
     this.getCampaigns();
   }
   componentDidUpdate() {
-    this.getCampaigns();
+    if (this.props.refresh == true) {
+      this.getCampaigns();
+    }
   }
 
   render() {

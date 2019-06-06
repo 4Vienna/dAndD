@@ -137,6 +137,7 @@ class CharForm extends Component {
       .doc(this.state.name)
       .set(character, { merge: true });
     this.props.clearCharacterToEdit();
+    this.props.characterSubmit();
     this.setState({
       name: "",
       id: "",

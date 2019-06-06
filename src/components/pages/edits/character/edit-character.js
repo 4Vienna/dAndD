@@ -10,13 +10,28 @@ export default class EditCharacters extends Component {
     super();
 
     this.state = {
-      characterToEdit: {}
+      characterToEdit: {},
+      refresh: false
     };
 
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
     this.clearCharacterToEdit = this.clearCharacterToEdit.bind(this);
+    this.characterSubmit = this.characterSubmit.bind(this);
+    this.handleRefresh = this.handleRefresh.bind(this);
   }
+
+  characterSubmit() {
+    this.setState({
+      refresh: true
+    });
+  }
+  handleRefresh() {
+    this.setState({
+      refresh: false
+    });
+  }
+
   clearCharacterToEdit() {
     this.setState({
       characterToEdit: {}
@@ -44,6 +59,7 @@ export default class EditCharacters extends Component {
           <CharForm
             clearCharacterToEdit={this.clearCharacterToEdit}
             characterToEdit={this.state.characterToEdit}
+            characterSubmit={this.characterSubmit}
           />
         </div>
         <div className="characters-list">
@@ -53,6 +69,8 @@ export default class EditCharacters extends Component {
               type="edit"
               handleEditClick={this.handleEditClick}
               handleDeleteClick={this.handleDeleteClick}
+              refresh={this.state.refresh}
+              handleRefresh={this.handleRefresh}
             />
           </div>
         </div>

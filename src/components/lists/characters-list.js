@@ -10,17 +10,19 @@ class CharactersList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: false,
       characters: [],
-      list: []
+      number: 1
     };
+
+    this.renderCharacters = this.renderCharacters.bind(this);
+    this.getCharacters = this.getCharacters.bind(this);
+    this.getWidth = this.getWidth.bind(this);
   }
   renderCharacters(props) {
     let characters = this.state.characters;
-    let num = () => {
-      let wid = window.innerWidth / 110;
-      if (wid < characters.length) {
-        return Math.floor(wid);
+    let getNum = () => {
+      if (this.state.number < characters.length) {
+        return Math.floor(this.state.number);
       } else {
         return characters.length;
       }
@@ -33,7 +35,7 @@ class CharactersList extends Component {
         infinite: true,
         dots: true,
         arrows: true,
-        slidesToShow: num(),
+        slidesToShow: getNum(),
         slidesToScroll: 1
       };
       return <Slider {...properties}>{characterRecords}</Slider>;
@@ -90,7 +92,7 @@ class CharactersList extends Component {
               <div className="delete">
                 <a
                   onClick={() => {
-                    this.props.handleDeleteClick(icon);
+                    this.props.handleDeleteClick(icon), this.getCharacters();
                   }}
                 >
                   <FontAwesomeIcon icon="trash" />
@@ -106,7 +108,7 @@ class CharactersList extends Component {
   getCharacters() {
     const db = firebase.firestore();
     var charactersRef = db.collection("characters");
-    charactersRef
+    var allcharacters = charactersRef
       .get()
       .then(snapshot => {
         let characters = [];
@@ -116,16 +118,28 @@ class CharactersList extends Component {
         this.setState({
           characters
         });
+        this.props.handleRefresh;
       })
       .catch(err => {
         console.log("Error getting documents", err);
       });
   }
+
+  getWidth() {
+    this.setState({
+      number: window.innerWidth / 110
+    });
+  }
+
   componentDidMount() {
     this.getCharacters();
   }
   componentDidUpdate() {
-    this.getCharacters();
+    if (this.props.refresh == true) {
+      this.getCharacters();
+    } else if (this.state.number !== window.innerWidth / 110) {
+      this.getWidth();
+    }
   }
 
   render() {

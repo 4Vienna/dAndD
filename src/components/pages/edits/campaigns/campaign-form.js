@@ -81,6 +81,7 @@ class CampaignForm extends Component {
       .doc(campaign.id)
       .set(campaign, { merge: true });
     this.props.clearCampaignToEdit();
+    this.props.campaignSubmit();
     this.setState({
       name: "",
       by: "",
