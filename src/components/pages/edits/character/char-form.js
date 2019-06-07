@@ -26,7 +26,7 @@ class CharForm extends Component {
       skin: "",
       other: "",
       pic:
-        "https://lh3.googleusercontent.com/m8xVtGYOTorBiE2G40kR4sceR1vFoOp5KyJPW-05e0Xxh27t4p38PPiA3qhg6ZdOzNeMUvM6toVEjMIjjkFpnX5SYemUlHXl5DO9JDN5Qre8kV3bYCBiAW8BNE5b3-LrXRG74Au-VjEbDMGUWIS5wCaG8CLuQEgviI-CoTX8m_jUtUyclmWdgiwjpB3tBSfBkuYb7mWygdSW9-M91qiVhj5H6PrEvB7NSf0KWDZzpA3BvWBU-8Qyha1sbELm_d3rKIC-kj1VWpvKQX8PGOGshL0GBIlEO_lL2kN0O2ALtOi-cabB2pe9TKkxfd_gTYs8A7-YDt98tNSqf-AO-TI165Gq_wRqZOGpbZ_6BQrh7BpuOd0izWITxx3Kh9njYbH6zcGMhGUqC7Zf2JIhz1dRsAdoYTYj5UzaaPBgqoEsy49M3jAza82aySrx_srPnefzjzwqIJdxJQvUmoS7LUSPlr3GSgc6AiKNehNjzVIFWWRAT_TmAyH1zWgvpiHWZKuAdd17WHohdrybvIbcV09qWOuedIyY98RzJM_hM9AMSwbGxb9bH8vJM07eJS75L2XVfbh3WAdjOmlECq09n0eGvr2JtlqbpvuVR4-Ais8hK0qHyAQ1jub41jWMm4WJRS7iBmdBPE7ihWoXnh_QnlM2GpjUqlTRH5bv5ctXtos9zX2mLSn79KzIHzQtWuYxoEbMKMLGxSvCWu6qBEfdupAvBp0=s225-no",
+        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/fcec6520-ff97-472e-a52b-38131f2a77e9/dd8s3aa-482250b0-7478-4a9b-a691-62a1441fd5f2.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2ZjZWM2NTIwLWZmOTctNDcyZS1hNTJiLTM4MTMxZjJhNzdlOVwvZGQ4czNhYS00ODIyNTBiMC03NDc4LTRhOWItYTY5MS02MmExNDQxZmQ1ZjIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.1y_abT2ssB8RWJPfwZyzZi_DuT1bFTHOBLoKJ3UFEMY",
       classlist: [],
       racelist: [],
       campaignslist: [],
@@ -101,7 +101,7 @@ class CharForm extends Component {
         other: other || "",
         pic:
           pic ||
-          "https://lh3.googleusercontent.com/m8xVtGYOTorBiE2G40kR4sceR1vFoOp5KyJPW-05e0Xxh27t4p38PPiA3qhg6ZdOzNeMUvM6toVEjMIjjkFpnX5SYemUlHXl5DO9JDN5Qre8kV3bYCBiAW8BNE5b3-LrXRG74Au-VjEbDMGUWIS5wCaG8CLuQEgviI-CoTX8m_jUtUyclmWdgiwjpB3tBSfBkuYb7mWygdSW9-M91qiVhj5H6PrEvB7NSf0KWDZzpA3BvWBU-8Qyha1sbELm_d3rKIC-kj1VWpvKQX8PGOGshL0GBIlEO_lL2kN0O2ALtOi-cabB2pe9TKkxfd_gTYs8A7-YDt98tNSqf-AO-TI165Gq_wRqZOGpbZ_6BQrh7BpuOd0izWITxx3Kh9njYbH6zcGMhGUqC7Zf2JIhz1dRsAdoYTYj5UzaaPBgqoEsy49M3jAza82aySrx_srPnefzjzwqIJdxJQvUmoS7LUSPlr3GSgc6AiKNehNjzVIFWWRAT_TmAyH1zWgvpiHWZKuAdd17WHohdrybvIbcV09qWOuedIyY98RzJM_hM9AMSwbGxb9bH8vJM07eJS75L2XVfbh3WAdjOmlECq09n0eGvr2JtlqbpvuVR4-Ais8hK0qHyAQ1jub41jWMm4WJRS7iBmdBPE7ihWoXnh_QnlM2GpjUqlTRH5bv5ctXtos9zX2mLSn79KzIHzQtWuYxoEbMKMLGxSvCWu6qBEfdupAvBp0=s225-no"
+          "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/fcec6520-ff97-472e-a52b-38131f2a77e9/dd8s3aa-482250b0-7478-4a9b-a691-62a1441fd5f2.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2ZjZWM2NTIwLWZmOTctNDcyZS1hNTJiLTM4MTMxZjJhNzdlOVwvZGQ4czNhYS00ODIyNTBiMC03NDc4LTRhOWItYTY5MS02MmExNDQxZmQ1ZjIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.1y_abT2ssB8RWJPfwZyzZi_DuT1bFTHOBLoKJ3UFEMY"
       });
     }
   }
@@ -159,7 +159,7 @@ class CharForm extends Component {
       skin: "",
       other: "",
       pic:
-        "https://lh3.googleusercontent.com/m8xVtGYOTorBiE2G40kR4sceR1vFoOp5KyJPW-05e0Xxh27t4p38PPiA3qhg6ZdOzNeMUvM6toVEjMIjjkFpnX5SYemUlHXl5DO9JDN5Qre8kV3bYCBiAW8BNE5b3-LrXRG74Au-VjEbDMGUWIS5wCaG8CLuQEgviI-CoTX8m_jUtUyclmWdgiwjpB3tBSfBkuYb7mWygdSW9-M91qiVhj5H6PrEvB7NSf0KWDZzpA3BvWBU-8Qyha1sbELm_d3rKIC-kj1VWpvKQX8PGOGshL0GBIlEO_lL2kN0O2ALtOi-cabB2pe9TKkxfd_gTYs8A7-YDt98tNSqf-AO-TI165Gq_wRqZOGpbZ_6BQrh7BpuOd0izWITxx3Kh9njYbH6zcGMhGUqC7Zf2JIhz1dRsAdoYTYj5UzaaPBgqoEsy49M3jAza82aySrx_srPnefzjzwqIJdxJQvUmoS7LUSPlr3GSgc6AiKNehNjzVIFWWRAT_TmAyH1zWgvpiHWZKuAdd17WHohdrybvIbcV09qWOuedIyY98RzJM_hM9AMSwbGxb9bH8vJM07eJS75L2XVfbh3WAdjOmlECq09n0eGvr2JtlqbpvuVR4-Ais8hK0qHyAQ1jub41jWMm4WJRS7iBmdBPE7ihWoXnh_QnlM2GpjUqlTRH5bv5ctXtos9zX2mLSn79KzIHzQtWuYxoEbMKMLGxSvCWu6qBEfdupAvBp0=s225-no"
+        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/fcec6520-ff97-472e-a52b-38131f2a77e9/dd8s3aa-482250b0-7478-4a9b-a691-62a1441fd5f2.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2ZjZWM2NTIwLWZmOTctNDcyZS1hNTJiLTM4MTMxZjJhNzdlOVwvZGQ4czNhYS00ODIyNTBiMC03NDc4LTRhOWItYTY5MS02MmExNDQxZmQ1ZjIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.1y_abT2ssB8RWJPfwZyzZi_DuT1bFTHOBLoKJ3UFEMY"
     });
   }
   handleChange(event) {
