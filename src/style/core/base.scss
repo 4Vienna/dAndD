@@ -3,7 +3,7 @@ h1 {
     font-size: 5em;
   }
   @media screen and (max-width: $phone) {
-    font-size: 3em;
+    font-size: 4em;
   }
   text-align: center;
   color: $accentOne;
@@ -43,6 +43,7 @@ td {
   height: 42px;
   font-size: 1em;
   font-weight: 500;
+  min-width: 200px;
   border: 1px solid transparent;
   transition: all 0.5s ease-in-out;
   background-color: $accentOne;
