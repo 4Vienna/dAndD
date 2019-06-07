@@ -46,15 +46,14 @@
     }
     .top-right {
       justify-items: center;
-      @include two-column();
       .table {
         @include float-box();
-        width: calc(50vw - 25px);
+        width: calc(100vw - 40px);
       }
       .far-right {
         .bio {
           @include float-box();
-          width: calc(50vw - 40px);
+          width: calc(100vw - 40px);
           p {
             height: 340px;
             overflow: scroll;
@@ -62,6 +61,7 @@
         }
         .list {
           height: 200px;
+          margin-bottom: 10px;
         }
       }
     }
